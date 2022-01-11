@@ -1,11 +1,11 @@
 /* -------------------------------------------
 
-Name: 		Arter
+Name: 		DUJARDIN Fabrice
 Version:  1.0
-Author:		Nazar Miller (millerDigitalDesign)
-Portfolio:  https://themeforest.net/user/millerdigitaldesign/portfolio?ref=MillerDigitalDesign
+Author:		Dujardin Fabrice 
+Portfolio:  https://fabricedujardinportfolio.github.io/
 
-p.s. I am available for Freelance hire (UI design, web development). mail: miller.themes@gmail.com
+p.s. Je suis disponible à la Freelance (développement web). mail : fabricedujardin873@gmail.com
 
 ------------------------------------------- */
 $(function() {

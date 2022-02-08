@@ -2649,6 +2649,11 @@ content (after 768px)
     width: 100%;
   }
 
+  .art-recomendation-popup {
+    background-color: transparent;
+    max-width: 100%;
+  }
+  
   .art-filter {
     text-align: center;
     display: -webkit-box;

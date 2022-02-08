@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://fabricedujardinportfolio.github.io/</title>
+  <link>https://fabricedujardinportfolio.github.io/</link>
+
+<item>
+     <link>https://fabricedujardinportfolio.github.io/</link>
+     <title>Dujardin Fabrice</title>
+     <description>Dujardin Fabrice</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://fabricedujardinportfolio.github.io/index.html</link>
+     <title>Dujardin Fabrice</title>
+     <description>Dujardin Fabrice</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://fabricedujardinportfolio.github.io/files/cv%20Fabrice%20DUJARDIN%202022.pdf</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://fabricedujardinportfolio.github.io/contact.html</link>
+     <title>Dujardin Fabrice</title>
+     <description>Dujardin Fabrice</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://fabricedujardinportfolio.github.io/history.html</link>
+     <title>Dujardin Fabrice</title>
+     <description>Dujardin Fabrice</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

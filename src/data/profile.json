@@ -5,7 +5,7 @@
   "tagline": "Full-stack PHP / Laravel, Vue.js et React, Docker et déploiement continu, basé à Nouméa en Nouvelle-Calédonie.",
   "location": "Nouméa, Nouvelle-Calédonie",
   "email": "fabricedujardin873@gmail.com",
-  "availability": "En poste chez Groupe Gladius · ouvert aux échanges et aux missions",
+  "availability": "En poste chez Groupe Gladius · disponible pour des missions en extra",
   "since": 2020,
   "rotate": [
     "vos applications Laravel.",
@@ -66,14 +66,13 @@
     }
   },
   "conditions": {
-    "status": "En poste (CDI) chez Groupe Gladius depuis janvier 2026",
-    "openTo": "Échanges, missions ponctuelles et opportunités en Nouvelle-Calédonie",
-    "contracts": "CDI · CDD · mission freelance",
-    "salary": "À partir de 300 000 F CFP brut par mois (CDI, temps plein)",
-    "freelanceRate": "Devis gratuit · tarif horaire à partir de 8 000 F CFP",
-    "remote": "Sur site à Nouméa ou à distance",
+    "status": "En CDI chez Groupe Gladius depuis janvier 2026 — pas en recherche d'emploi",
+    "openTo": "Missions ponctuelles en complément de mon poste (soirs, week-ends, à distance) : site vitrine, application web, WordPress, maintenance, coup de main technique",
+    "format": "Prestation freelance ou mission courte, sur devis",
+    "rate": "Devis gratuit · tarif horaire à partir de 8 000 F CFP selon le projet",
+    "remote": "À distance principalement, rencontre possible à Nouméa",
     "mobility": "Grand Nouméa · permis A, B, C, E · véhicule personnel",
-    "experienceYears": "6 ans de développement web (depuis 2020), 3 ans chez Hélium NC"
+    "experienceYears": "6 ans de développement web (depuis 2020), 3 ans chez Hélium NC, en poste chez Groupe Gladius"
   },
   "faq": [
     {
@@ -85,12 +84,12 @@
       "a": "Back-end PHP orienté objet avec Laravel et CodeIgniter, bases MySQL, API REST. Front-end Vue.js 3, React.js, JavaScript, HTML/CSS. WordPress sur mesure. Docker pour les environnements, GitHub Actions pour l'intégration et le déploiement continus."
     },
     {
-      "q": "Est-il disponible pour une mission ou un recrutement à Nouméa ?",
-      "a": "Fabrice est en CDI mais reste ouvert aux échanges, aux missions ponctuelles et aux opportunités en Nouvelle-Calédonie, sur site à Nouméa ou à distance. Le formulaire de contact du site permet de le joindre directement."
+      "q": "Est-il disponible pour un recrutement ou une mission à Nouméa ?",
+      "a": "Fabrice est en CDI chez Groupe Gladius et n'est pas en recherche d'emploi. Il reste en revanche disponible pour des missions ponctuelles en extra, en complément de son poste : site vitrine, application web, WordPress, maintenance ou coup de main technique, principalement à distance. Le formulaire de contact du site permet de le joindre directement."
     },
     {
-      "q": "Quelles sont ses prétentions salariales ?",
-      "a": "À partir de 300 000 F CFP brut mensuel pour un CDI à temps plein à Nouméa. Pour une mission freelance : devis gratuit, tarif horaire à partir de 8 000 F CFP selon le projet."
+      "q": "Quels sont ses tarifs pour une mission ?",
+      "a": "Devis gratuit après un premier échange sur le besoin. Tarif horaire à partir de 8 000 F CFP selon la nature du projet, ou forfait pour un site ou une application bien délimités."
     },
     {
       "q": "Quels projets a-t-il réalisés ?",

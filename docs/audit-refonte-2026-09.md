@@ -228,4 +228,6 @@ Contenu intégré : Groupe Gladius (2026), Hélium NC (2022-2025), GIEP-NC (alte
 
 Reste à fournir par Fabrice (voir §5) : projets Hélium et Gladius présentables (captures + descriptions), clé Web3Forms si formulaire par e-mail souhaité, logos Gladius / Hélium / Skazy / Udemy, CV public expurgé (adresse et date de naissance), confirmation des dates de formation CCI.
 
+Compléments du même jour : CV généré depuis les données (page `/cv/` + PDF au build), second compte GitHub, SEO/GEO (données structurées, FAQ, conditions, `llms.txt`, robots IA), Docker et GitHub Actions ajoutés aux compétences. Positionnement retenu : **en poste, pas recrutable, disponible pour des missions ponctuelles en extra** (devis, à partir de 8 000 F CFP/h, valeur de l'ancien site à confirmer).
+
 Mise en ligne : fusionner `refonte-2026` dans `main`, puis régler **Settings → Pages → Source** sur **GitHub Actions**.

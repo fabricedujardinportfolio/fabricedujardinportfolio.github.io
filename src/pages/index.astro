@@ -36,9 +36,8 @@ const faqSchema = {
 const conditions = [
   { k: 'Situation', v: profile.conditions.status },
   { k: 'Ouvert à', v: profile.conditions.openTo },
-  { k: 'Contrats', v: profile.conditions.contracts },
-  { k: 'Prétentions salariales', v: profile.conditions.salary },
-  { k: 'Freelance', v: profile.conditions.freelanceRate },
+  { k: 'Format', v: profile.conditions.format },
+  { k: 'Tarifs', v: profile.conditions.rate },
   { k: 'Lieu de travail', v: profile.conditions.remote },
   { k: 'Mobilité', v: profile.conditions.mobility },
   { k: 'Expérience', v: profile.conditions.experienceYears },
@@ -47,7 +46,7 @@ const conditions = [
 
 <Base
   title={fullName}
-  description={`${fullName}, ${profile.title.toLowerCase()} à Nouméa, Nouvelle-Calédonie : Laravel, Vue.js, React, WordPress, Docker. ${years} ans d'expérience, projets en production, disponible pour missions et recrutement.`}
+  description={`${fullName}, ${profile.title.toLowerCase()} à Nouméa, Nouvelle-Calédonie : Laravel, Vue.js, React, WordPress, Docker. ${years} ans d'expérience, projets en production, disponible pour des missions ponctuelles en extra.`}
   type="profile"
   schemas={[faqSchema]}
 >
@@ -69,7 +68,7 @@ const conditions = [
         <p class="lead reveal">{profile.tagline}</p>
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="/projets/">Voir mes projets <Icon name="arrow" /></a>
-          <a class="btn" href={profile.cv} download><Icon name="download" /> Télécharger le CV</a>
+          <a class="btn" href="/cv/"><Icon name="download" /> Voir mon CV</a>
           <a class="btn btn--ghost" href="/contact/"><Icon name="mail" /> Me contacter</a>
         </div>
         {
@@ -196,8 +195,8 @@ const conditions = [
   <section class="section" id="conditions" aria-labelledby="cond-title">
     <div class="container">
       <p class="eyebrow reveal">Disponibilité & conditions</p>
-      <h2 id="cond-title" class="reveal">Travailler avec un développeur web à Nouméa</h2>
-      <p class="lead reveal">Les informations qu'un recruteur ou un client cherche en premier, sans détour.</p>
+      <h2 id="cond-title" class="reveal">Une mission en extra avec un développeur web à Nouméa</h2>
+      <p class="lead reveal">Je suis en poste et pas en recherche d'emploi, mais je prends volontiers des missions ponctuelles en complément. Les informations utiles, sans détour.</p>
       <dl class="conditions">
         {
           conditions.map((c) => (

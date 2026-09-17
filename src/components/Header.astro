@@ -34,7 +34,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
           ))
         }
       </ul>
-      <a class="btn btn--primary site-nav__cv" href={profile.cv} download>
+      <a class="btn btn--primary site-nav__cv" href="/cv/" aria-current={path.startsWith('/cv') ? 'page' : undefined}>
         <Icon name="download" size={18} /> CV
       </a>
     </nav>

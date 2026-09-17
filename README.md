@@ -32,7 +32,7 @@ Le CV n'est plus un PDF maintenu à la main : la page `/cv/` est construite à p
 fichiers de données, et `npm run build` en produit le PDF (`/cv-fabrice-dujardin.pdf`) avec
 Chrome en mode headless (`scripts/cv-pdf.mjs`). Chrome est présent sur les serveurs GitHub
 Actions ; en local, le script utilise `CHROME_PATH`, un Chrome du PATH, ou le Chromium du cache
-Playwright. Sans Chrome, le build continue mais sans PDF.
+Playwright. Sans Chrome, le build continue mais sans PDF. Le PDF est aussi copié dans `public/` (ignoré par git) pour que le téléchargement fonctionne en mode `npm run dev` après un premier `npm run build`.
 
 Champs optionnels du CV dans `profile.json` : `phone` et `birthDate` ne s'affichent que s'ils
 sont renseignés (ils deviennent publics).

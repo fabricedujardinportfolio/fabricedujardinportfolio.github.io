@@ -4,7 +4,7 @@
  * Chrome recherché dans CHROME_PATH, puis dans le PATH, puis dans le cache Playwright.
  */
 import { createServer } from 'node:http';
-import { readFile, stat, access, readdir } from 'node:fs/promises';
+import { readFile, stat, access, readdir, copyFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -80,6 +80,8 @@ try {
     `http://127.0.0.1:${port}/cv/`,
   ]);
   const { size } = await stat(OUT);
+  // Copie (ignorée par git) pour que le téléchargement fonctionne aussi avec `npm run dev`.
+  await copyFile(OUT, resolve('public', 'cv-fabrice-dujardin.pdf'));
   console.log(`✓ CV PDF généré : ${OUT} (${Math.round(size / 1024)} Ko) avec ${chrome}`);
 } finally {
   server.close();

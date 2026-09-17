@@ -11,3 +11,6 @@ Thumbs.db
 npm-debug.log*
 .env
 .env.*
+
+# PDF du CV : généré au build, copié ici pour le mode dev
+public/cv-fabrice-dujardin.pdf

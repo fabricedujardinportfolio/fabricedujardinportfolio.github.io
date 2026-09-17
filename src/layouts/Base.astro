@@ -53,17 +53,17 @@ const person = {
     occupationLocation: { '@type': 'City', name: 'Nouméa' },
     skills: knows.join(', '),
     experienceRequirements: profile.conditions.experienceYears,
-    estimatedSalary: {
-      '@type': 'MonetaryAmountDistribution',
-      name: 'Prétentions salariales (CDI temps plein)',
-      currency: 'XPF',
-      duration: 'P1M',
-      minValue: 300000,
-    },
   },
   worksFor: current && { '@type': 'Organization', name: current.company, location: current.location },
   alumniOf: formations.filter((f) => /diplôme|titre/i.test(f.level + f.title)).map((f) => ({ '@type': 'EducationalOrganization', name: f.school })),
-  seeks: { '@type': 'Demand', name: profile.conditions.openTo, areaServed: { '@type': 'Country', name: 'Nouvelle-Calédonie' } },
+  makesOffer: {
+    '@type': 'Offer',
+    name: 'Missions ponctuelles de développement web (en extra)',
+    description: profile.conditions.openTo,
+    priceSpecification: { '@type': 'UnitPriceSpecification', price: 8000, priceCurrency: 'XPF', unitText: 'heure', description: profile.conditions.rate },
+    areaServed: { '@type': 'Country', name: 'Nouvelle-Calédonie' },
+    availability: 'https://schema.org/LimitedAvailability',
+  },
 };
 const website = {
   '@type': 'WebSite',

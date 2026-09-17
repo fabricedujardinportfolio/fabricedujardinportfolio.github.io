@@ -15,6 +15,7 @@ const otherExp = experiences.filter((e) => !e.web);
 const site = profile.website.replace(/^https?:\/\//, '');
 const linkedin = profile.links.linkedin.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
 const github = profile.links.github.replace(/^https?:\/\//, '');
+const githubPro = profile.links.githubPro?.replace(/^https?:\/\//, '');
 const generated = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(new Date());
 ---
 
@@ -41,7 +42,8 @@ const generated = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format
         {profile.birthDate && <li><Icon name="sparkle" size={13} /> Né le {profile.birthDate}</li>}
         <li><Icon name="external" size={13} /> <a href={profile.website}>{site}</a></li>
         {profile.links.linkedin && <li><Icon name="linkedin" size={13} /> <a href={profile.links.linkedin}>{linkedin}</a></li>}
-        <li><Icon name="github" size={13} /> <a href={profile.links.github}>{github}</a></li>
+        <li><Icon name="github" size={13} /> <a href={profile.links.github}>{github}</a> <span class="cv-muted">(perso)</span></li>
+        {githubPro && <li><Icon name="github" size={13} /> <a href={profile.links.githubPro}>{githubPro}</a> <span class="cv-muted">(pro)</span></li>}
       </ul>
     </header>
 

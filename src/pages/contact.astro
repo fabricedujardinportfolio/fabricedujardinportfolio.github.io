@@ -32,7 +32,8 @@ const endpoint = profile.web3formsKey ? 'https://api.web3forms.com/submit' : '';
             <Icon name="github" class="contact__icon" />
             <h2>Réseaux</h2>
             <p class="contact__links">
-              <a href={profile.links.github} rel="noopener noreferrer" target="_blank">GitHub <Icon name="external" size={14} /></a>
+              <a href={profile.links.github} rel="noopener noreferrer" target="_blank">GitHub perso <Icon name="external" size={14} /></a>
+              {profile.links.githubPro && <a href={profile.links.githubPro} rel="noopener noreferrer" target="_blank">GitHub pro <Icon name="external" size={14} /></a>}
               {profile.links.linkedin && <a href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn <Icon name="external" size={14} /></a>}
             </p>
           </li>

@@ -9,11 +9,20 @@
     "end": null,
     "logo": null,
     "web": true,
-    "stack": ["Laravel", "React.js", "PHP", "MySQL", "API REST"],
+    "stack": [
+      "Laravel",
+      "React.js",
+      "PHP",
+      "MySQL",
+      "API REST",
+      "Docker",
+      "GitHub Actions"
+    ],
     "summary": "Conception et développement d'applications web et mobiles pour le groupe et ses clients.",
     "bullets": [
       "Développement d'applications métier : Laravel côté serveur, React.js côté interface.",
       "Conception d'API REST consommées par des applications web et mobiles.",
+      "Conteneurisation des environnements avec Docker et automatisation des déploiements avec GitHub Actions (CI/CD).",
       "Participation au cycle complet : analyse du besoin, développement, tests, mise en production."
     ]
   },
@@ -27,7 +36,16 @@
     "end": "2025-10",
     "logo": null,
     "web": true,
-    "stack": ["PHP", "CodeIgniter", "WordPress", "Vue.js", "JavaScript", "jQuery", "MySQL", "API REST"],
+    "stack": [
+      "PHP",
+      "CodeIgniter",
+      "WordPress",
+      "Vue.js",
+      "JavaScript",
+      "jQuery",
+      "MySQL",
+      "API REST"
+    ],
     "summary": "Trois ans de mise en production de sites et d'applications web pour des clients calédoniens.",
     "bullets": [
       "Développement et maintenance d'applications métier avec CodeIgniter et bases de données MySQL.",
@@ -46,7 +64,11 @@
     "end": "2022-06",
     "logo": "giep",
     "web": true,
-    "stack": ["PHP", "Laravel", "WordPress"],
+    "stack": [
+      "PHP",
+      "Laravel",
+      "WordPress"
+    ],
     "summary": "Poursuite des développements engagés pendant l'alternance.",
     "bullets": [
       "Finalisation et maintenance des applications internes (ressources, absences) et de l'intranet.",
@@ -63,7 +85,14 @@
     "end": "2022-03",
     "logo": "giep",
     "web": true,
-    "stack": ["PHP", "Laravel", "WordPress", "MySQL", "Ajax", "Bootstrap"],
+    "stack": [
+      "PHP",
+      "Laravel",
+      "WordPress",
+      "MySQL",
+      "Ajax",
+      "Bootstrap"
+    ],
     "summary": "Développement d'applications internes pour le Groupement pour l'Insertion et l'Évolution Professionnelles.",
     "bullets": [
       "Application Laravel de gestion des ressources (véhicules, salles, matériel informatique) : réservation, recherche, authentification interne.",
@@ -71,7 +100,11 @@
       "Mise en place des environnements de test et de production, puis déploiement d'un intranet WordPress centralisant l'information interne."
     ],
     "testimonial": "ronny",
-    "projects": ["gestion-ressources-giep", "intranet-giep", "gestion-absences-giep"]
+    "projects": [
+      "gestion-ressources-giep",
+      "intranet-giep",
+      "gestion-absences-giep"
+    ]
   },
   {
     "id": "iaai",
@@ -83,7 +116,10 @@
     "end": "2020-09",
     "logo": "iaai-events",
     "web": true,
-    "stack": ["WordPress", "PHP"],
+    "stack": [
+      "WordPress",
+      "PHP"
+    ],
     "summary": "Administration et mise en production de plusieurs sites WordPress du groupe.",
     "bullets": []
   },
@@ -97,7 +133,10 @@
     "end": "2020-06",
     "logo": "dotta",
     "web": true,
-    "stack": ["Laravel", "WordPress"],
+    "stack": [
+      "Laravel",
+      "WordPress"
+    ],
     "summary": "Corrections et évolutions Laravel sur les projets clients, production et déploiement de sites WordPress.",
     "bullets": []
   },

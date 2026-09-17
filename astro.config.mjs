@@ -6,7 +6,12 @@ export default defineConfig({
   site: 'https://fabricedujardinportfolio.github.io',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // date de dernière construction sur chaque URL
+      serialize: (item) => ({ ...item, lastmod: new Date().toISOString() }),
+    }),
+  ],
   build: {
     // Feuilles de style toujours externes : compatible CSP stricte.
     inlineStylesheets: 'never',

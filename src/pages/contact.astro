@@ -7,7 +7,12 @@ const [user, domain] = profile.email.split('@');
 const endpoint = profile.web3formsKey ? 'https://api.web3forms.com/submit' : '';
 ---
 
-<Base title="Contact" description="Contactez Fabrice Dujardin, développeur web & mobile à Nouméa : projet, mission, recrutement ou simple question.">
+<Base
+  title="Contacter un développeur web à Nouméa"
+  description="Contactez Fabrice Dujardin, développeur web & mobile à Nouméa, Nouvelle-Calédonie : projet Laravel, Vue.js ou WordPress, mission freelance, recrutement CDI, ou simple question."
+  crumbs={[{ name: 'Contact', path: '/contact/' }]}
+  schemas={[{ '@type': 'ContactPage', name: 'Contact', url: 'https://fabricedujardinportfolio.github.io/contact/' }]}
+>
   <section class="section">
     <div class="container contact">
       <div class="contact__intro">

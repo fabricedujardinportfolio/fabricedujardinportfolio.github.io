@@ -4,9 +4,20 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import projects from '../../data/projects.json';
 
 const categories = [...new Set(projects.map((p) => p.category))];
+
+const listSchema = {
+  '@type': 'ItemList',
+  name: 'Projets de Fabrice Dujardin, développeur web à Nouméa',
+  itemListElement: projects.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `https://fabricedujardinportfolio.github.io/projets/${p.slug}/` })),
+};
 ---
 
-<Base title="Projets" description="Projets web réalisés par Fabrice Dujardin : applications Laravel, PHP et WordPress mises en production en Nouvelle-Calédonie.">
+<Base
+  title="Projets web réalisés à Nouméa"
+  description="Projets web réalisés par Fabrice Dujardin, développeur à Nouméa : applications Laravel, PHP et WordPress mises en production pour des organisations de Nouvelle-Calédonie."
+  crumbs={[{ name: 'Projets', path: '/projets/' }]}
+  schemas={[listSchema]}
+>
   <section class="section">
     <div class="container">
       <div class="section-head">

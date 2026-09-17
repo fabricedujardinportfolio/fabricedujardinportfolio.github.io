@@ -23,9 +23,28 @@ for (const g of project.gallery) {
   if (img) gallery.push({ ...g, img });
 }
 const cover = gallery[0]?.img;
+const projectSchema = {
+  '@type': 'SoftwareApplication',
+  name: project.title,
+  description: project.summary,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  datePublished: String(project.year),
+  image: cover ? new URL(cover.src, Astro.site).toString() : undefined,
+  author: { '@id': 'https://fabricedujardinportfolio.github.io/#person' },
+  keywords: [...project.stack, project.category, project.client, 'Nouméa', 'Nouvelle-Calédonie'].join(', '),
+  offers: undefined,
+};
 ---
 
-<Base title={project.title} description={project.summary} image={cover?.src} type="article">
+<Base
+  title={project.title}
+  description={`${project.summary} Projet ${project.category} réalisé par Fabrice Dujardin, développeur web à Nouméa (${project.client}, ${project.year}).`}
+  image={cover?.src}
+  type="article"
+  crumbs={[{ name: 'Projets', path: '/projets/' }, { name: project.title, path: `/projets/${project.slug}/` }]}
+  schemas={[projectSchema]}
+>
   <article class="section project">
     <div class="container">
       <a class="link-arrow project__back reveal" href="/projets/"><Icon name="chevronLeft" /> Tous les projets</a>

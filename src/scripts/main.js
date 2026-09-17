@@ -236,7 +236,7 @@ function initContactForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     // Piège anti-robot : un champ caché rempli = robot.
-    if (form.querySelector('[name="botcheck"]')?.value) return;
+    if (form.querySelector('[name="botcheck"]')?.checked) return;
     const data = new FormData(form);
     const name = data.get('name') || '';
     const email = data.get('email') || '';

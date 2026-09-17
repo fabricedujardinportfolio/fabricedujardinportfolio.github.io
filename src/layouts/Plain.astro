@@ -1,0 +1,41 @@
+---
+/** Mise en page minimale (sans en-tête ni pied de page du site) : utilisée pour le CV imprimable. */
+import '@fontsource-variable/inter';
+import '@fontsource-variable/outfit';
+import '../styles/global.css';
+import profile from '../data/profile.json';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const fullName = `${profile.firstName} ${profile.lastName}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · {fullName}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="author" content={fullName} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={`${title} · ${fullName}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+    <script is:inline src="/theme-init.js"></script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/main.js';
+    </script>
+  </body>
+</html>

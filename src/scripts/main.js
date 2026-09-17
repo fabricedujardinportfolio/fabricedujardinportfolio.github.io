@@ -290,6 +290,12 @@ function initEmail() {
   });
 }
 
+/* ---------- Bouton Imprimer (page CV) ---------- */
+function initPrint() {
+  document.querySelectorAll('[data-print]').forEach((b) => b.addEventListener('click', () => window.print()));
+}
+
+initPrint();
 initTheme();
 initNav();
 initHeader();

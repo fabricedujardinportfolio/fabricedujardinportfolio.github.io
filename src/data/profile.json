@@ -22,5 +22,27 @@
   "intro": [
     "Développeur web depuis 2020, j'ai construit mon parcours en Nouvelle-Calédonie : alternance au GIEP-NC, trois ans chez Hélium NC sur des sites et applications en production, et aujourd'hui développeur web & mobile au sein du Groupe Gladius.",
     "J'aime partir d'un besoin concret et livrer une application propre, maintenable et agréable à utiliser : back-end PHP (Laravel, CodeIgniter), interfaces Vue.js ou React, WordPress quand c'est le bon outil. Avant le web, dix ans de maintenance technique m'ont appris la rigueur et le sens du service."
-  ]
+  ],
+  "phone": "",
+  "website": "https://fabricedujardinportfolio.github.io",
+  "languages": [
+    {
+      "name": "Français",
+      "level": "Langue maternelle"
+    },
+    {
+      "name": "Anglais",
+      "level": "Intermédiaire, lecture technique courante"
+    },
+    {
+      "name": "Espagnol",
+      "level": "Notions"
+    }
+  ],
+  "extras": [
+    "Permis A, B, C, E · véhicule personnel",
+    "Disponible sur site à Nouméa ou à distance"
+  ],
+  "birthDate": "",
+  "_aide": "Champs optionnels du CV : phone et birthDate (ex. \"23 mars 1992\") ne s'affichent que s'ils sont renseignés. Ils sont publics une fois en ligne."
 }

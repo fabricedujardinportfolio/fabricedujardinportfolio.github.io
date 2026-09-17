@@ -9,9 +9,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/cv-pdf.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "cv:pdf": "node scripts/cv-pdf.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

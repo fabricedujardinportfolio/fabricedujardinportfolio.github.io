@@ -10,6 +10,7 @@
   "rotate": [
     "vos applications Laravel + Inertia + React.",
     "vos interfaces Vue.js et React.",
+    "vos sites vitrines rapides et référencés.",
     "vos sites WordPress sur mesure.",
     "vos API REST et back-offices.",
     "vos déploiements Docker et GitHub Actions."
@@ -96,7 +97,7 @@
     },
     {
       "q": "Quels projets a-t-il réalisés ?",
-      "a": "Pour le GIEP-NC : une application Laravel de gestion des ressources (réservation de véhicules, salles et matériel), un intranet WordPress et une application PHP de gestion des absences, tous mis en production. Chez Hélium NC : trois ans de sites et d'applications web pour des clients calédoniens."
+      "a": "En 2026, le site vitrine de la Distillerie Rolland (rhum au gaïac, Moindou) : site statique Astro avec contrôle d'âge, formulaire sécurisé et référencement soigné, réalisé en mission freelance. Pour le GIEP-NC : une application Laravel de gestion des ressources, un intranet WordPress et une application PHP de gestion des absences, tous mis en production. Chez Hélium NC : trois ans de sites et d'applications web pour des clients calédoniens."
     },
     {
       "q": "Quel est son parcours avant le web ?",

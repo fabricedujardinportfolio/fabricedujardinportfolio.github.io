@@ -1,5 +1,62 @@
 [
   {
+    "slug": "distillerie-rolland",
+    "title": "Site vitrine de la Distillerie Rolland",
+    "category": "Astro",
+    "year": 2026,
+    "client": "Distillerie Rolland · Moindou",
+    "period": "Été 2026",
+    "status": "En ligne",
+    "context": "Mission freelance en extra",
+    "url": "https://www.distillerie-rolland.com/",
+    "stack": [
+      "Astro",
+      "Tailwind CSS",
+      "TypeScript",
+      "Web3Forms",
+      "hCaptcha",
+      "Données structurées",
+      "CSP"
+    ],
+    "cover": "distillerie-rolland-accueil",
+    "summary": "Site vitrine d'une distillerie artisanale de rhum au gaïac à Moindou : une page immersive, rapide et référencée, avec contrôle d'âge et formulaire sécurisé.",
+    "description": [
+      "La Distillerie Rolland produit à Moindou, à 1 h 30 de Nouméa, des rhums traditionnels dont La Métisse et un rhum brun vieilli au cœur de gaïac torréfié. Elle avait besoin d'une présence en ligne à la hauteur du produit : sobre, chaleureuse, et qui se charge vite sur un téléphone en brousse.",
+      "J'ai conçu et développé un site statique en une page qui déroule l'histoire de la distillerie, le gaïac, les créations, une foire aux questions et un contact. Le contrôle de l'âge légal s'affiche avant tout contenu, comme l'impose la vente d'alcool, et les mentions de modération sont présentes. Le formulaire de contact passe par un service tiers protégé par un captcha, sans serveur à maintenir.",
+      "Sous le capot : images optimisées et redimensionnées automatiquement, données structurées pour Google et les assistants IA, politique de sécurité stricte côté serveur, aucun traceur. Le site est hébergé sur un hébergement mutualisé classique, sans dépendance à une plateforme."
+    ],
+    "features": [
+      "Contrôle de l'âge légal avant l'accès au contenu",
+      "Une page, six sections : distillerie, gaïac, créations, FAQ, contact",
+      "Formulaire de contact sécurisé par captcha, sans serveur",
+      "Images optimisées, chargement rapide sur mobile",
+      "Référencement : données structurées, balises sociales, FAQ",
+      "Politique de sécurité stricte (CSP) et zéro traceur"
+    ],
+    "gallery": [
+      {
+        "file": "distillerie-rolland-accueil",
+        "alt": "Visuel d'accueil du site de la Distillerie Rolland"
+      },
+      {
+        "file": "distillerie-rolland-moindou",
+        "alt": "Les collines de Moindou, où est installée la distillerie"
+      },
+      {
+        "file": "distillerie-rolland-gaiac",
+        "alt": "Rondin de gaïac coupé, cœur rouge acajou utilisé pour le rhum brun"
+      },
+      {
+        "file": "distillerie-rolland-fermentation",
+        "alt": "Cuve de fermentation en inox de la distillerie"
+      },
+      {
+        "file": "distillerie-rolland-rhum-blanc",
+        "alt": "Bouteille de rhum blanc La Métisse"
+      }
+    ]
+  },
+  {
     "slug": "gestion-ressources-giep",
     "title": "Gestion des ressources du GIEP-NC",
     "category": "Laravel",
@@ -7,7 +64,13 @@
     "client": "GIEP-NC",
     "period": "Mai → décembre 2021",
     "status": "Mis en production",
-    "stack": ["Laravel", "PHP", "MySQL", "Bootstrap", "Ajax"],
+    "stack": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Bootstrap",
+      "Ajax"
+    ],
     "cover": "app-ressource",
     "summary": "Remplacement d'une application obsolète de réservation des véhicules, salles et matériels du GIEP-NC.",
     "description": [
@@ -21,11 +84,26 @@
       "Vue des réservations faites pour les agents d'un service"
     ],
     "gallery": [
-      { "file": "app-ressource", "alt": "Page d'accueil de l'application de gestion des ressources" },
-      { "file": "laravel-ressource-recherche-typeRessource", "alt": "Recherche d'une ressource par type" },
-      { "file": "laravel-ressource-result-recherche-by-typeRessource", "alt": "Résultats de la recherche par type de ressource" },
-      { "file": "laravel-ressource-autocomplete", "alt": "Autocomplétion Ajax sur le nom des agents" },
-      { "file": "laravel-ressource-reservationfaitePourAgent", "alt": "Réservations effectuées pour les agents du service" }
+      {
+        "file": "app-ressource",
+        "alt": "Page d'accueil de l'application de gestion des ressources"
+      },
+      {
+        "file": "laravel-ressource-recherche-typeRessource",
+        "alt": "Recherche d'une ressource par type"
+      },
+      {
+        "file": "laravel-ressource-result-recherche-by-typeRessource",
+        "alt": "Résultats de la recherche par type de ressource"
+      },
+      {
+        "file": "laravel-ressource-autocomplete",
+        "alt": "Autocomplétion Ajax sur le nom des agents"
+      },
+      {
+        "file": "laravel-ressource-reservationfaitePourAgent",
+        "alt": "Réservations effectuées pour les agents du service"
+      }
     ]
   },
   {
@@ -36,7 +114,11 @@
     "client": "GIEP-NC",
     "period": "Janvier → avril 2021",
     "status": "Mis en production",
-    "stack": ["WordPress", "PHP", "MySQL"],
+    "stack": [
+      "WordPress",
+      "PHP",
+      "MySQL"
+    ],
     "cover": "wordpress-intranet",
     "summary": "Un intranet qui centralise l'information interne et sert de socle aux applications métier du groupement.",
     "description": [
@@ -50,11 +132,26 @@
       "Menu de tutoriels et actualités internes"
     ],
     "gallery": [
-      { "file": "wordpress-intranet", "alt": "Page d'accueil de l'intranet" },
-      { "file": "wordpress-intranet-accueil-bas", "alt": "Bas de la page d'accueil de l'intranet" },
-      { "file": "wordpress-intranet-annuaire", "alt": "Annuaire des agents" },
-      { "file": "wordpress-intranet-agent-abs", "alt": "Liste des agents absents" },
-      { "file": "wordpress-intranet-menu-tuto", "alt": "Menu des tutoriels" }
+      {
+        "file": "wordpress-intranet",
+        "alt": "Page d'accueil de l'intranet"
+      },
+      {
+        "file": "wordpress-intranet-accueil-bas",
+        "alt": "Bas de la page d'accueil de l'intranet"
+      },
+      {
+        "file": "wordpress-intranet-annuaire",
+        "alt": "Annuaire des agents"
+      },
+      {
+        "file": "wordpress-intranet-agent-abs",
+        "alt": "Liste des agents absents"
+      },
+      {
+        "file": "wordpress-intranet-menu-tuto",
+        "alt": "Menu des tutoriels"
+      }
     ]
   },
   {
@@ -65,7 +162,12 @@
     "client": "GIEP-NC",
     "period": "Mai 2021",
     "status": "Mis en production",
-    "stack": ["PHP (POO)", "MySQL", "JavaScript", "Ajax"],
+    "stack": [
+      "PHP (POO)",
+      "MySQL",
+      "JavaScript",
+      "Ajax"
+    ],
     "cover": "php-absence-accueil",
     "summary": "Application PHP orientée objet qui informe tous les services des absences des agents.",
     "description": [
@@ -79,11 +181,26 @@
       "Affichage consolidé repris sur l'intranet"
     ],
     "gallery": [
-      { "file": "php-absence-accueil", "alt": "Page d'accueil de l'application Absences" },
-      { "file": "php-absence-login", "alt": "Écran de connexion" },
-      { "file": "php-absence-ajoutUnAbsent", "alt": "Formulaire d'ajout d'un absent" },
-      { "file": "php-absence-autocompletion", "alt": "Autocomplétion sur le nom de l'agent" },
-      { "file": "php-absence-updateAbsence", "alt": "Modification d'une absence" }
+      {
+        "file": "php-absence-accueil",
+        "alt": "Page d'accueil de l'application Absences"
+      },
+      {
+        "file": "php-absence-login",
+        "alt": "Écran de connexion"
+      },
+      {
+        "file": "php-absence-ajoutUnAbsent",
+        "alt": "Formulaire d'ajout d'un absent"
+      },
+      {
+        "file": "php-absence-autocompletion",
+        "alt": "Autocomplétion sur le nom de l'agent"
+      },
+      {
+        "file": "php-absence-updateAbsence",
+        "alt": "Modification d'une absence"
+      }
     ]
   }
 ]

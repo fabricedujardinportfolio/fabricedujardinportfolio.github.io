@@ -266,15 +266,20 @@ function initContactForm() {
           message,
         }),
       });
-      const json = await res.json();
+      const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
         form.reset();
         setStatus('Merci, votre message est bien parti. Je vous réponds rapidement.', true);
       } else {
-        throw new Error(json.message || 'Erreur');
+        throw new Error(json.message || `réponse ${res.status} du service`);
       }
-    } catch {
-      setStatus(`L\'envoi a échoué. Vous pouvez m\'écrire directement à ${to}.`, false);
+    } catch (err) {
+      const reason =
+        err instanceof TypeError
+          ? 'connexion au service impossible : bloqueur de contenu, extension ou réseau'
+          : err.message;
+      console.error('[contact] envoi refusé :', err);
+      setStatus(`L'envoi a échoué (${reason}). Vous pouvez m'écrire directement à ${to}.`, false);
     } finally {
       btn.disabled = false;
     }

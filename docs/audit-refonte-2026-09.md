@@ -226,6 +226,6 @@ La refonte a été réalisée dans la foulée de l'audit, sur la branche `refont
 
 Contenu intégré : Groupe Gladius (2026), Hélium NC (2022-2025), GIEP-NC (alternance + CDD), IAAI-Events, Dotta, parcours avant le web, formations Skazy 2025, Udemy Vue.js 3 2024, CCI, OpenClassrooms, FUN ICN, armée, BEP ; 3 projets GIEP réécrits ; recommandation Ronny Pelage ; compétences groupées.
 
-Reste à fournir par Fabrice (voir §5) : URL LinkedIn, projets Hélium et Gladius présentables (captures + descriptions), clé Web3Forms si formulaire par e-mail souhaité, logos Gladius / Hélium / Skazy / Udemy, CV public expurgé (adresse et date de naissance), confirmation des dates de formation CCI.
+Reste à fournir par Fabrice (voir §5) : projets Hélium et Gladius présentables (captures + descriptions), clé Web3Forms si formulaire par e-mail souhaité, logos Gladius / Hélium / Skazy / Udemy, CV public expurgé (adresse et date de naissance), confirmation des dates de formation CCI.
 
 Mise en ligne : fusionner `refonte-2026` dans `main`, puis régler **Settings → Pages → Source** sur **GitHub Actions**.

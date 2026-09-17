@@ -38,7 +38,7 @@ const conditions = [
   { k: 'Ouvert à', v: profile.conditions.openTo },
   { k: 'Format', v: profile.conditions.format },
   { k: 'Tarifs', v: profile.conditions.rate },
-  ...(profile.conditions.salary ? [{ k: 'Offre en CDI', v: `Uniquement pour une offre exceptionnelle : ${profile.conditions.salary}` }] : []),
+  { k: 'Offre en CDI', v: profile.conditions.salary ? `${profile.conditions.cdi} : ${profile.conditions.salary}` : profile.conditions.cdi },
   { k: 'Lieu de travail', v: profile.conditions.remote },
   { k: 'Mobilité', v: profile.conditions.mobility },
   { k: 'Expérience', v: profile.conditions.experienceYears },

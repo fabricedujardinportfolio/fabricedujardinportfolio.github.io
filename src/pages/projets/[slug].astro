@@ -1,0 +1,182 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import projects from '../../data/projects.json';
+import { projectImage } from '../../lib/images';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const index = projects.findIndex((p) => p.slug === slug);
+const project = projects[index];
+if (!project) return Astro.redirect('/404/');
+const prev = projects[(index - 1 + projects.length) % projects.length];
+const next = projects[(index + 1) % projects.length];
+
+const gallery = [];
+for (const g of project.gallery) {
+  const img = await projectImage(g.file);
+  if (img) gallery.push({ ...g, img });
+}
+const cover = gallery[0]?.img;
+---
+
+<Base title={project.title} description={project.summary} image={cover?.src} type="article">
+  <article class="section project">
+    <div class="container">
+      <a class="link-arrow project__back reveal" href="/projets/"><Icon name="chevronLeft" /> Tous les projets</a>
+
+      <header class="project__head">
+        <div>
+          <p class="eyebrow reveal">{project.category} · {project.year}</p>
+          <h1 class="reveal">{project.title}</h1>
+          <p class="lead reveal">{project.summary}</p>
+        </div>
+        <dl class="project__meta card reveal">
+          <div><dt>Client</dt><dd>{project.client}</dd></div>
+          <div><dt>Période</dt><dd>{project.period}</dd></div>
+          <div><dt>Statut</dt><dd><span class="chip chip--teal">{project.status}</span></dd></div>
+          <div>
+            <dt>Stack</dt>
+            <dd><ul class="chips">{project.stack.map((s) => <li class="chip">{s}</li>)}</ul></dd>
+          </div>
+        </dl>
+      </header>
+
+      {
+        cover && (
+          <a class="project__cover reveal" href={cover.src} data-lightbox data-alt={gallery[0].alt}>
+            <Image src={cover} alt={gallery[0].alt} width={1200} widths={[720, 1200]} sizes="(max-width: 1200px) 96vw, 1180px" loading="eager" fetchpriority="high" />
+            <span class="project__zoom"><Icon name="expand" /> Agrandir</span>
+          </a>
+        )
+      }
+
+      <div class="project__body">
+        <div class="project__desc">
+          <h2 class="reveal">Le projet</h2>
+          {project.description.map((p) => <p class="reveal">{p}</p>)}
+        </div>
+        <aside class="project__features card reveal">
+          <h2>Fonctionnalités</h2>
+          <ul>
+            {project.features.map((f) => <li><Icon name="check" size={18} /> <span>{f}</span></li>)}
+          </ul>
+        </aside>
+      </div>
+
+      {
+        gallery.length > 1 && (
+          <section class="project__gallery" aria-labelledby="galerie">
+            <h2 id="galerie" class="reveal">Captures d'écran</h2>
+            <ul class="gallery">
+              {gallery.slice(1).map((g) => (
+                <li class="reveal">
+                  <a href={g.img.src} data-lightbox data-alt={g.alt} class="gallery__item">
+                    <Image src={g.img} alt={g.alt} width={640} widths={[420, 640]} sizes="(max-width: 700px) 92vw, 45vw" />
+                    <span class="project__zoom"><Icon name="expand" size={16} /></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <nav class="project__nav" aria-label="Autres projets">
+        <a class="card card--hover" href={`/projets/${prev.slug}/`} rel="prev">
+          <span class="project__nav-label"><Icon name="chevronLeft" size={16} /> Projet précédent</span>
+          <strong>{prev.title}</strong>
+        </a>
+        <a class="card card--hover project__nav-next" href={`/projets/${next.slug}/`} rel="next">
+          <span class="project__nav-label">Projet suivant <Icon name="chevronRight" size={16} /></span>
+          <strong>{next.title}</strong>
+        </a>
+      </nav>
+    </div>
+  </article>
+  <Lightbox />
+</Base>
+
+<style>
+  .project__back { margin-bottom: 24px; color: var(--muted); }
+  .project__back :global(svg) { transition: transform 0.3s var(--ease); }
+  .project__back:hover :global(svg) { transform: translateX(-4px); }
+  .project__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+    margin-bottom: 36px;
+  }
+  .project__meta { display: grid; gap: 14px; margin: 0; }
+  .project__meta dt { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+  .project__meta dd { margin: 0; }
+  .project__cover {
+    position: relative;
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: clamp(36px, 6vw, 64px);
+  }
+  .project__cover img { width: 100%; transition: transform 0.8s var(--ease); }
+  .project__cover:hover img { transform: scale(1.015); }
+  .project__zoom {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--bg) 75%, transparent);
+    color: var(--text);
+    font-size: 0.85rem;
+    backdrop-filter: blur(6px);
+  }
+  .project__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+    gap: clamp(24px, 4vw, 48px);
+    margin-bottom: clamp(36px, 6vw, 64px);
+  }
+  .project__desc p { color: var(--muted); font-size: 1.05rem; }
+  .project__features h2 { font-size: 1.1rem; }
+  .project__features ul { list-style: none; display: grid; gap: 10px; }
+  .project__features li { display: flex; gap: 10px; color: var(--muted); }
+  .project__features :global(svg) { flex: none; color: var(--accent-2-text); margin-top: 4px; }
+  .gallery { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .gallery__item {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    aspect-ratio: 16 / 10;
+  }
+  .gallery__item img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.6s var(--ease); }
+  .gallery__item:hover img { transform: scale(1.04); }
+  .gallery__item .project__zoom { padding: 8px; right: 10px; bottom: 10px; }
+  .project__nav { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(36px, 6vw, 64px); }
+  .project__nav a { display: grid; gap: 6px; color: var(--text); }
+  .project__nav a:hover { text-decoration: none; }
+  .project__nav-label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 0.85rem; }
+  .project__nav-next { text-align: right; }
+  .project__nav-next .project__nav-label { justify-content: flex-end; }
+  @media (max-width: 860px) {
+    .project__head, .project__body { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .project__nav { grid-template-columns: 1fr; }
+    .project__nav-next { text-align: left; }
+    .project__nav-next .project__nav-label { justify-content: flex-start; }
+  }
+</style>

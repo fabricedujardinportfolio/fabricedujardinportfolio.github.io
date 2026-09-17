@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base title="Page introuvable" description="Cette page n'existe pas ou a été déplacée.">
+  <section class="section notfound">
+    <div class="container">
+      <p class="eyebrow">Erreur 404</p>
+      <h1 class="mono">&lt;page introuvable /&gt;</h1>
+      <p class="lead">Cette adresse n'existe pas ou plus. Le site a été entièrement refait en 2026 : les anciennes pages ont changé d'adresse.</p>
+      <div class="notfound__actions">
+        <a class="btn btn--primary" href="/">Retour à l'accueil <Icon name="arrow" /></a>
+        <a class="btn" href="/projets/">Voir les projets</a>
+        <a class="btn btn--ghost" href="/parcours/">Voir le parcours</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound { min-height: 60dvh; display: grid; align-items: center; }
+  .notfound__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+</style>

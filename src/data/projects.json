@@ -1,0 +1,89 @@
+[
+  {
+    "slug": "gestion-ressources-giep",
+    "title": "Gestion des ressources du GIEP-NC",
+    "category": "Laravel",
+    "year": 2021,
+    "client": "GIEP-NC",
+    "period": "Mai → décembre 2021",
+    "status": "Mis en production",
+    "stack": ["Laravel", "PHP", "MySQL", "Bootstrap", "Ajax"],
+    "cover": "app-ressource",
+    "summary": "Remplacement d'une application obsolète de réservation des véhicules, salles et matériels du GIEP-NC.",
+    "description": [
+      "Le GIEP-NC gérait ses ressources matérielles (véhicules, salles de formation, salles de réunion, matériel informatique) avec une application vieillissante. Le projet consistait à la remplacer en repartant de zéro, en se concentrant sur le cœur du besoin : créer une réservation vite et sans erreur.",
+      "L'application, réservée aux agents, embarque son propre système d'authentification. Chaque agent voit les réservations de son service, recherche une ressource par type et trouve l'agent concerné grâce à une autocomplétion en Ajax."
+    ],
+    "features": [
+      "Authentification interne et gestion des agents par service",
+      "Recherche par type de ressource avec résultats instantanés",
+      "Autocomplétion Ajax sur les agents",
+      "Vue des réservations faites pour les agents d'un service"
+    ],
+    "gallery": [
+      { "file": "app-ressource", "alt": "Page d'accueil de l'application de gestion des ressources" },
+      { "file": "laravel-ressource-recherche-typeRessource", "alt": "Recherche d'une ressource par type" },
+      { "file": "laravel-ressource-result-recherche-by-typeRessource", "alt": "Résultats de la recherche par type de ressource" },
+      { "file": "laravel-ressource-autocomplete", "alt": "Autocomplétion Ajax sur le nom des agents" },
+      { "file": "laravel-ressource-reservationfaitePourAgent", "alt": "Réservations effectuées pour les agents du service" }
+    ]
+  },
+  {
+    "slug": "intranet-giep",
+    "title": "Intranet WordPress du GIEP-NC",
+    "category": "WordPress",
+    "year": 2021,
+    "client": "GIEP-NC",
+    "period": "Janvier → avril 2021",
+    "status": "Mis en production",
+    "stack": ["WordPress", "PHP", "MySQL"],
+    "cover": "wordpress-intranet",
+    "summary": "Un intranet qui centralise l'information interne et sert de socle aux applications métier du groupement.",
+    "description": [
+      "Première mission au GIEP-NC : mettre en place un environnement de test et un environnement de production, puis y déployer un intranet WordPress destiné à devenir la porte d'entrée des applications métier.",
+      "L'intranet centralise l'annuaire des agents, l'affichage des absences (alimenté par l'application PHP dédiée), les tutoriels et l'actualité interne. L'environnement déployé simplifie la maintenance et sécurise les mises à jour."
+    ],
+    "features": [
+      "Environnements de test et de production séparés",
+      "Annuaire des agents",
+      "Affichage des agents absents, alimenté par l'application Absences",
+      "Menu de tutoriels et actualités internes"
+    ],
+    "gallery": [
+      { "file": "wordpress-intranet", "alt": "Page d'accueil de l'intranet" },
+      { "file": "wordpress-intranet-accueil-bas", "alt": "Bas de la page d'accueil de l'intranet" },
+      { "file": "wordpress-intranet-annuaire", "alt": "Annuaire des agents" },
+      { "file": "wordpress-intranet-agent-abs", "alt": "Liste des agents absents" },
+      { "file": "wordpress-intranet-menu-tuto", "alt": "Menu des tutoriels" }
+    ]
+  },
+  {
+    "slug": "gestion-absences-giep",
+    "title": "Gestion des absences",
+    "category": "PHP",
+    "year": 2021,
+    "client": "GIEP-NC",
+    "period": "Mai 2021",
+    "status": "Mis en production",
+    "stack": ["PHP (POO)", "MySQL", "JavaScript", "Ajax"],
+    "cover": "php-absence-accueil",
+    "summary": "Application PHP orientée objet qui informe tous les services des absences des agents.",
+    "description": [
+      "Chaque service du GIEP-NC avait besoin de savoir rapidement qui est absent. Cette application PHP orientée objet sert de socle d'information : les absences y sont saisies une fois et remontent automatiquement sur l'intranet.",
+      "Connexion sécurisée, saisie d'une absence avec autocomplétion sur le nom de l'agent, modification et consultation consolidée."
+    ],
+    "features": [
+      "Connexion sécurisée",
+      "Ajout d'un absent avec autocomplétion",
+      "Modification d'une absence existante",
+      "Affichage consolidé repris sur l'intranet"
+    ],
+    "gallery": [
+      { "file": "php-absence-accueil", "alt": "Page d'accueil de l'application Absences" },
+      { "file": "php-absence-login", "alt": "Écran de connexion" },
+      { "file": "php-absence-ajoutUnAbsent", "alt": "Formulaire d'ajout d'un absent" },
+      { "file": "php-absence-autocompletion", "alt": "Autocomplétion sur le nom de l'agent" },
+      { "file": "php-absence-updateAbsence", "alt": "Modification d'une absence" }
+    ]
+  }
+]

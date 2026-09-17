@@ -1,0 +1,353 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Timeline from '../components/Timeline.astro';
+import profile from '../data/profile.json';
+import experiences from '../data/experiences.json';
+import formations from '../data/formations.json';
+import projects from '../data/projects.json';
+import skills from '../data/skills.json';
+import testimonials from '../data/testimonials.json';
+import portrait from '../assets/portrait.png';
+import { person } from '../lib/images';
+import { yearsSince } from '../lib/dates';
+
+const fullName = `${profile.firstName} ${profile.lastName}`;
+const years = yearsSince(profile.since);
+const companies = new Set(experiences.filter((e) => e.web).map((e) => e.company)).size;
+const certifications = formations.filter((f) => /diplôme|certificat|attestation/i.test(f.level)).length;
+const techCount = skills.filter((g) => g.group !== 'Support & matériel' && g.group !== 'Design').reduce((n, g) => n + g.items.length, 0);
+const stats = [
+  { value: years, suffix: '+', label: "années de développement web" },
+  { value: companies, suffix: '', label: 'entreprises calédoniennes' },
+  { value: certifications, suffix: '', label: 'diplômes et certifications' },
+  { value: techCount, suffix: '+', label: 'technologies pratiquées' },
+];
+const current = experiences.find((e) => e.end === null);
+const testimonial = testimonials[0];
+const testimonialPhoto = testimonial ? await person(testimonial.photo) : null;
+---
+
+<Base title={fullName} description={`${fullName}, ${profile.title.toLowerCase()} à Nouméa. ${profile.tagline} Découvrez mes projets, mon parcours et contactez-moi.`} type="profile">
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow reveal">{profile.title} · Nouméa</p>
+        <h1 class="reveal">
+          Bonjour, je suis <span class="hero__name">Fabrice</span>.<br />
+          Je conçois des applications web utiles et soignées.
+        </h1>
+        <p class="hero__code reveal">
+          <span class="hero__tag">&lt;code&gt;</span>
+          je construis <span class="hero__rotate" data-rotate={JSON.stringify(profile.rotate)}>{profile.rotate[0]}</span><span class="hero__cursor" aria-hidden="true"></span>
+          <span class="hero__tag">&lt;/code&gt;</span>
+        </p>
+        <p class="lead reveal">{profile.tagline}</p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="/projets/">Voir mes projets <Icon name="arrow" /></a>
+          <a class="btn" href={profile.cv} download><Icon name="download" /> Télécharger le CV</a>
+          <a class="btn btn--ghost" href="/contact/"><Icon name="mail" /> Me contacter</a>
+        </div>
+        {
+          current && (
+            <p class="hero__status reveal">
+              <span class="hero__pulse" aria-hidden="true"></span>
+              {profile.availability}
+            </p>
+          )
+        }
+      </div>
+
+      <div class="hero__visual reveal" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__portrait">
+          <Image src={portrait} alt="" width={459} height={428} loading="eager" fetchpriority="high" />
+        </div>
+        <span class="hero__badge hero__badge--1 chip chip--accent">Laravel</span>
+        <span class="hero__badge hero__badge--2 chip chip--teal">Vue.js</span>
+        <span class="hero__badge hero__badge--3 chip">React</span>
+        <span class="hero__badge hero__badge--4 chip">WordPress</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Chiffres ===== -->
+  <section class="section--tight" aria-label="Chiffres clés">
+    <div class="container">
+      <ul class="stats">
+        {
+          stats.map((s) => (
+            <li class="stats__item card reveal">
+              <span class="stats__value"><span data-count={s.value}>0</span>{s.suffix}</span>
+              <span class="stats__label">{s.label}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== À propos + compétences ===== -->
+  <section class="section" id="a-propos">
+    <div class="container about">
+      <div class="about__text">
+        <p class="eyebrow reveal">À propos</p>
+        <h2 class="reveal">Du besoin métier à la mise en production</h2>
+        {profile.intro.map((p) => <p class="lead reveal">{p}</p>)}
+        <a class="link-arrow reveal" href="/parcours/">Voir tout mon parcours <Icon name="arrow" /></a>
+      </div>
+      <div class="about__skills">
+        {
+          skills.map((g) => (
+            <div class="skill-group card reveal">
+              <h3>{g.group}</h3>
+              <ul class="chips">
+                {g.items.map((s) => (
+                  <li class="chip">{s}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projets ===== -->
+  <section class="section" id="projets">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Projets</p>
+          <h2 class="reveal">Réalisations en production</h2>
+        </div>
+        <a class="link-arrow reveal" href="/projets/">Tous les projets <Icon name="arrow" /></a>
+      </div>
+      <div class="grid grid--3">
+        {projects.map((p, i) => <ProjectCard project={p} loading={i === 0 ? 'eager' : 'lazy'} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Parcours résumé ===== -->
+  <section class="section" id="parcours">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Parcours</p>
+          <h2 class="reveal">Les dernières étapes</h2>
+        </div>
+        <a class="link-arrow reveal" href="/parcours/">Frise complète <Icon name="arrow" /></a>
+      </div>
+      <Timeline experiences={experiences} formations={formations} limit={4} compact />
+    </div>
+  </section>
+
+  <!-- ===== Recommandation ===== -->
+  {
+    testimonial && (
+      <section class="section" aria-labelledby="reco-title">
+        <div class="container">
+          <p class="eyebrow reveal">Recommandation</p>
+          <h2 id="reco-title" class="reveal">Ce qu'on dit de mon travail</h2>
+          <blockquote class="testimonial card reveal">
+            <Icon name="quote" class="testimonial__icon" size={40} />
+            <p>{testimonial.text}</p>
+            <footer>
+              {testimonialPhoto && <Image src={testimonialPhoto} alt="" width={56} height={56} />}
+              <span>
+                <strong>{testimonial.name}</strong>
+                <br />
+                <span class="testimonial__role">{testimonial.role}</span>
+              </span>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Un projet, une mission, une question ?</h2>
+          <p class="lead">Je réponds rapidement. Échangeons sur votre besoin ou sur mon parcours.</p>
+        </div>
+        <a class="btn btn--primary" href="/contact/">Me contacter <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero { padding-block: clamp(40px, 7vw, 96px) clamp(24px, 4vw, 48px); overflow: clip; }
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 64px);
+  }
+  .hero__name {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero__code {
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .hero__tag { color: var(--faint); }
+  .hero__rotate { color: var(--accent-2-text); }
+  .hero__cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    background: var(--accent-2-text);
+    animation: blink 1s steps(2) infinite;
+  }
+  @keyframes blink { to { opacity: 0; } }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .hero__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 26px 0 0;
+    padding: 8px 14px 8px 10px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .hero__pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent-2) 60%, transparent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    70% { box-shadow: 0 0 0 10px transparent; }
+  }
+
+  .hero__visual { position: relative; aspect-ratio: 1; max-width: 460px; margin-inline: auto; width: 100%; }
+  .hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.55;
+    animation: drift 14s ease-in-out infinite alternate;
+  }
+  .hero__blob--1 { inset: 5% 15% 25% 0; background: var(--accent); }
+  .hero__blob--2 { inset: 25% 0 5% 20%; background: var(--accent-2); animation-delay: -6s; }
+  @keyframes drift {
+    to { transform: translate(6%, -6%) scale(1.08) rotate(10deg); }
+  }
+  .hero__portrait {
+    position: absolute;
+    inset: 8%;
+    border-radius: 36% 64% 58% 42% / 45% 38% 62% 55%;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow);
+    animation: morph 16s ease-in-out infinite alternate;
+  }
+  @keyframes morph {
+    to { border-radius: 55% 45% 40% 60% / 50% 60% 40% 50%; }
+  }
+  .hero__portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .hero__badge {
+    position: absolute;
+    box-shadow: var(--shadow-sm);
+    animation: float 6s ease-in-out infinite;
+    font-weight: 600;
+  }
+  .hero__badge--1 { top: 6%; right: 2%; }
+  .hero__badge--2 { bottom: 14%; right: -2%; animation-delay: -1.5s; }
+  .hero__badge--3 { bottom: 4%; left: 10%; animation-delay: -3s; }
+  .hero__badge--4 { top: 18%; left: -4%; animation-delay: -4.5s; }
+  @keyframes float {
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Stats */
+  .stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .stats__item { display: grid; gap: 4px; padding: 22px 24px; }
+  .stats__value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-text);
+  }
+  .stats__label { color: var(--muted); font-size: 0.92rem; }
+
+  /* About */
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: start;
+  }
+  .about__skills { display: grid; gap: 14px; }
+  .skill-group { padding: 18px 20px; }
+  .skill-group h3 { margin: 0 0 12px; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-2-text); font-family: var(--font-mono); font-weight: 500; }
+
+  /* Testimonial */
+  .testimonial {
+    position: relative;
+    margin: 0;
+    padding: clamp(24px, 4vw, 40px);
+    padding-left: clamp(24px, 4vw, 40px);
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 900px;
+  }
+  .testimonial :global(.testimonial__icon) { color: var(--accent); margin-bottom: 12px; }
+  .testimonial p { margin: 0 0 20px; font-style: italic; }
+  .testimonial footer { display: flex; align-items: center; gap: 14px; color: var(--text); }
+  .testimonial footer img { border-radius: 50%; border: 2px solid var(--accent); }
+  .testimonial__role { color: var(--muted); font-size: 0.9rem; }
+
+  /* CTA */
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(28px, 4vw, 48px);
+    background:
+      radial-gradient(40rem 20rem at 100% 0%, color-mix(in oklab, var(--accent-2) 22%, transparent), transparent 60%),
+      var(--surface);
+  }
+  .cta h2 { margin-bottom: 8px; }
+  .cta .lead { margin: 0; }
+
+  @media (max-width: 900px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__visual { max-width: 340px; order: -1; }
+    .about { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .cta { flex-direction: column; align-items: flex-start; }
+  }
+</style>

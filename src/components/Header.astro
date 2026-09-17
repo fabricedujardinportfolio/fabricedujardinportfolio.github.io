@@ -1,0 +1,180 @@
+---
+import Icon from './Icon.astro';
+import profile from '../data/profile.json';
+
+const path = Astro.url.pathname;
+const items = [
+  { href: '/', label: 'Accueil' },
+  { href: '/projets/', label: 'Projets' },
+  { href: '/parcours/', label: 'Parcours' },
+  { href: '/contact/', label: 'Contact' },
+];
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Accueil — Fabrice Dujardin">
+      <span class="brand__mark" aria-hidden="true">FD</span>
+      <span class="brand__text">
+        <strong>{profile.firstName} {profile.lastName}</strong>
+        <small>{profile.title}</small>
+      </span>
+    </a>
+
+    <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+      <ul>
+        {
+          items.map((it) => (
+            <li>
+              <a href={it.href} aria-current={isActive(it.href) ? 'page' : undefined}>
+                {it.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="btn btn--primary site-nav__cv" href={profile.cv} download>
+        <Icon name="download" size={18} /> CV
+      </a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Changer de thème">
+        <Icon name="sun" class="icon-sun" />
+        <Icon name="moon" class="icon-moon" />
+      </button>
+      <button
+        class="icon-btn nav-toggle"
+        type="button"
+        data-nav-toggle
+        aria-controls="site-nav"
+        aria-expanded="false"
+        aria-label="Ouvrir le menu"
+      >
+        <Icon name="menu" class="icon-menu" />
+        <Icon name="close" class="icon-close" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    view-transition-name: header;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in oklab, var(--bg) 72%, transparent);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+  }
+  .site-header.is-scrolled {
+    border-bottom-color: var(--border);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 72px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .brand:hover { text-decoration: none; }
+  .brand__mark {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: var(--accent-ink);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: -0.02em;
+  }
+  .brand__text { display: flex; flex-direction: column; line-height: 1.15; }
+  .brand__text strong { font-family: var(--font-display); font-weight: 600; }
+  .brand__text small { color: var(--muted); font-size: 0.78rem; }
+
+  .site-nav ul {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+  }
+  .site-nav { display: flex; align-items: center; gap: 12px; }
+  .site-nav a:not(.btn) {
+    position: relative;
+    display: inline-block;
+    padding: 10px 14px;
+    color: var(--muted);
+    font-weight: 500;
+    border-radius: 999px;
+    transition: color 0.25s var(--ease), background 0.25s var(--ease);
+  }
+  .site-nav a:not(.btn):hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
+  .site-nav a[aria-current='page'] { color: var(--text); }
+  .site-nav a[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: translateX(-50%);
+  }
+  .site-nav__cv { padding: 10px 16px; margin-left: 8px; }
+
+  .site-header__actions { display: flex; align-items: center; gap: 6px; }
+  .icon-btn {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .icon-btn:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .icon-btn :global(svg) { width: 20px; height: 20px; }
+  .nav-toggle { display: none; }
+
+  @media (max-width: 859px) {
+    .nav-toggle { display: grid; }
+    .brand__text small { display: none; }
+    .site-nav {
+      position: fixed;
+      inset: 72px 0 0 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 24px var(--gutter) 40px;
+      background: color-mix(in oklab, var(--bg) 96%, transparent);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
+    }
+    :global(body.nav-open) .site-nav { opacity: 1; transform: none; visibility: visible; }
+    :global(body.nav-open) { overflow: hidden; }
+    .site-nav ul { flex-direction: column; gap: 6px; }
+    .site-nav a:not(.btn) { font-size: 1.4rem; font-family: var(--font-display); padding: 14px 16px; border-radius: 14px; }
+    .site-nav a[aria-current='page']::after { left: 16px; transform: none; bottom: 8px; }
+    .site-nav__cv { margin: 20px 0 0; justify-content: center; padding: 14px; }
+  }
+</style>

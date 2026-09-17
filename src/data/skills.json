@@ -1,0 +1,7 @@
+[
+  { "group": "Back-end", "items": ["PHP (POO)", "Laravel", "CodeIgniter", "MySQL", "API REST", "Node.js"] },
+  { "group": "Front-end", "items": ["HTML5", "CSS3 / SCSS", "JavaScript", "Vue.js 3", "React.js", "jQuery", "Bootstrap", "Ajax"] },
+  { "group": "CMS & outils", "items": ["WordPress", "Git / GitHub", "SEO", "Gestion de projet web"] },
+  { "group": "Design", "items": ["Illustrator", "Affinity Designer", "Photoshop", "Affinity Photo"] },
+  { "group": "Support & matériel", "items": ["Diagnostic à distance", "Maintenance préventive", "Installation de postes", "Assistance utilisateur"] }
+]

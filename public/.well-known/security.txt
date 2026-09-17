@@ -1,0 +1,3 @@
+Contact: https://fabricedujardinportfolio.github.io/contact/
+Preferred-Languages: fr, en
+Expires: 2027-09-30T00:00:00.000Z

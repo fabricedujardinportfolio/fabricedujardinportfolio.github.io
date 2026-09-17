@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import projects from '../../data/projects.json';
+
+const categories = [...new Set(projects.map((p) => p.category))];
+---
+
+<Base title="Projets" description="Projets web réalisés par Fabrice Dujardin : applications Laravel, PHP et WordPress mises en production en Nouvelle-Calédonie.">
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Projets</p>
+          <h1 class="reveal">Réalisations</h1>
+          <p class="lead reveal">Des applications construites pour de vrais utilisateurs et mises en production. Filtrez par technologie.</p>
+        </div>
+      </div>
+
+      <ul class="filters reveal" data-filter-group="#projects-grid" aria-label="Filtrer par technologie">
+        <li><button class="filter-btn" type="button" data-filter="*" aria-pressed="true">Tous</button></li>
+        {categories.map((c) => <li><button class="filter-btn" type="button" data-filter={c} aria-pressed="false">{c}</button></li>)}
+      </ul>
+
+      <div id="projects-grid" class="grid grid--3 projects-grid">
+        {projects.map((p, i) => <ProjectCard project={p} loading={i < 3 ? 'eager' : 'lazy'} />)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .projects-grid { margin-top: 28px; }
+</style>

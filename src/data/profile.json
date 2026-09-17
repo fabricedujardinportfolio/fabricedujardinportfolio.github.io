@@ -1,0 +1,26 @@
+{
+  "firstName": "Fabrice",
+  "lastName": "Dujardin",
+  "title": "Développeur web & mobile",
+  "tagline": "Full-stack PHP / Laravel, Vue.js et React, basé à Nouméa.",
+  "location": "Nouméa, Nouvelle-Calédonie",
+  "email": "fabricedujardin873@gmail.com",
+  "availability": "En poste chez Groupe Gladius · ouvert aux échanges et aux missions",
+  "since": 2020,
+  "rotate": [
+    "vos applications Laravel.",
+    "vos interfaces Vue.js et React.",
+    "vos sites WordPress sur mesure.",
+    "vos API REST et back-offices."
+  ],
+  "links": {
+    "github": "https://github.com/fabricedujardinportfolio",
+    "linkedin": ""
+  },
+  "cv": "/cv-fabrice-dujardin.pdf",
+  "web3formsKey": "",
+  "intro": [
+    "Développeur web depuis 2020, j'ai construit mon parcours en Nouvelle-Calédonie : alternance au GIEP-NC, trois ans chez Hélium NC sur des sites et applications en production, et aujourd'hui développeur web & mobile au sein du Groupe Gladius.",
+    "J'aime partir d'un besoin concret et livrer une application propre, maintenable et agréable à utiliser : back-end PHP (Laravel, CodeIgniter), interfaces Vue.js ou React, WordPress quand c'est le bon outil. Avant le web, dix ans de maintenance technique m'ont appris la rigueur et le sens du service."
+  ]
+}

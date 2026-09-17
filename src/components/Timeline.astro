@@ -1,0 +1,293 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import OrgLogo from './OrgLogo.astro';
+import { range, duration, year } from '../lib/dates';
+import { diploma, person } from '../lib/images';
+import testimonials from '../data/testimonials.json';
+import projects from '../data/projects.json';
+const projectTitle = (slug: string) => projects.find((p) => p.slug === slug)?.title ?? 'Projet';
+
+type Exp = {
+  id: string;
+  company: string;
+  role: string;
+  contract: string;
+  location: string;
+  start: string;
+  end: string | null;
+  logo: string | null;
+  web: boolean;
+  stack: string[];
+  summary: string;
+  bullets: string[];
+  testimonial?: string;
+  projects?: string[];
+};
+type Formation = {
+  id: string;
+  title: string;
+  school: string;
+  start: string;
+  end: string;
+  level: string;
+  logo: string | null;
+  diploma?: string;
+  summary: string;
+};
+interface Props {
+  experiences: Exp[];
+  formations: Formation[];
+  /** Nombre d'éléments à afficher (accueil). */
+  limit?: number;
+  compact?: boolean;
+}
+const { experiences, formations, limit, compact = false } = Astro.props;
+
+type Item =
+  | { kind: 'exp'; date: string; data: Exp }
+  | { kind: 'edu'; date: string; data: Formation };
+
+let items: Item[] = [
+  ...experiences.map((e) => ({ kind: 'exp' as const, date: e.end ?? '9999-12', data: e })),
+  ...formations.map((f) => ({ kind: 'edu' as const, date: f.end, data: f })),
+].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.data.start < b.data.start ? 1 : -1));
+if (limit) items = items.slice(0, limit);
+
+const diplomas = new Map<string, Awaited<ReturnType<typeof diploma>>>();
+for (const it of items) {
+  if (it.kind === 'edu' && it.data.diploma) diplomas.set(it.data.id, await diploma(it.data.diploma));
+}
+const photos = new Map<string, Awaited<ReturnType<typeof person>>>();
+for (const t of testimonials) photos.set(t.id, await person(t.photo));
+
+const yearOf = (it: Item) => year(it.kind === 'exp' ? it.data.end : it.data.end);
+const showYear = items.map((it, i) => i === 0 || yearOf(it) !== yearOf(items[i - 1]));
+const cats = (it: Item) =>
+  it.kind === 'exp' ? `exp ${it.data.web ? 'web' : 'autre'}` : 'edu';
+---
+
+<ol class={`timeline ${compact ? 'timeline--compact' : ''}`}>
+  {
+    items.map((it, i) => (
+      <li class="timeline__item filterable reveal" data-cat={cats(it)}>
+        {showYear[i] && <span class="timeline__year mono" aria-hidden="true">{yearOf(it)}</span>}
+        <span class={`timeline__dot ${it.kind === 'edu' ? 'timeline__dot--edu' : ''}`} aria-hidden="true">
+          <Icon name={it.kind === 'exp' ? 'briefcase' : 'graduation'} size={14} />
+        </span>
+        <article class="card timeline__card">
+          <header class="timeline__head">
+            <OrgLogo
+              name={it.data.logo}
+              label={it.kind === 'exp' ? it.data.company : it.data.school}
+              size={compact ? 40 : 48}
+            />
+            <div class="timeline__titles">
+              <h3>{it.kind === 'exp' ? it.data.role : it.data.title}</h3>
+              <p class="timeline__org">
+                {it.kind === 'exp' ? it.data.company : it.data.school}
+                {it.kind === 'exp' && <span class="timeline__sep">·</span>}
+                {it.kind === 'exp' && <span>{it.data.contract}</span>}
+                {it.kind === 'edu' && <span class="timeline__sep">·</span>}
+                {it.kind === 'edu' && <span>{it.data.level}</span>}
+              </p>
+            </div>
+            <p class="timeline__dates mono">
+              <time datetime={it.data.start}>{range(it.data.start, it.data.end)}</time>
+              {it.kind === 'exp' && <span class="timeline__duration">{duration(it.data.start, it.data.end)}</span>}
+            </p>
+          </header>
+
+          {it.data.summary && <p class="timeline__summary">{it.data.summary}</p>}
+
+          {!compact && it.kind === 'exp' && it.data.bullets.length > 0 && (
+            <ul class="timeline__bullets">
+              {it.data.bullets.map((b) => (
+                <li>
+                  <Icon name="check" size={16} /> <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {it.kind === 'exp' && it.data.stack.length > 0 && (
+            <ul class="chips" aria-label="Technologies">
+              {it.data.stack.map((s) => (
+                <li class="chip">{s}</li>
+              ))}
+            </ul>
+          )}
+
+          {!compact && it.kind === 'exp' && (it.data.projects?.length || it.data.testimonial) && (
+            <div class="timeline__actions">
+              {it.data.projects?.map((slug) => (
+                <a class="link-arrow timeline__project" href={`/projets/${slug}/`}>
+                  <Icon name="code" size={16} /> {projectTitle(slug)}
+                </a>
+              ))}
+              {it.data.testimonial && (
+                <details class="timeline__testimonial">
+                  <summary class="link-arrow">
+                    Lire la recommandation <Icon name="chevronRight" size={16} />
+                  </summary>
+                  {testimonials
+                    .filter((t) => t.id === it.data.testimonial)
+                    .map((t) => {
+                      const photo = photos.get(t.id);
+                      return (
+                        <blockquote>
+                          <p>« {t.text} »</p>
+                          <footer>
+                            {photo && <Image src={photo} alt="" width={44} height={44} />}
+                            <span>
+                              <strong>{t.name}</strong>
+                              <br />
+                              {t.role}
+                            </span>
+                          </footer>
+                        </blockquote>
+                      );
+                    })}
+                </details>
+              )}
+            </div>
+          )}
+
+          {!compact && it.kind === 'edu' && diplomas.get(it.data.id) && (
+            <a
+              class="timeline__diploma"
+              href={diplomas.get(it.data.id)!.src}
+              data-lightbox
+              data-alt={`${it.data.title} — ${it.data.level}`}
+              aria-label={`Voir le document : ${it.data.title}`}
+            >
+              <Image src={diplomas.get(it.data.id)!} alt="" width={320} />
+              <span class="timeline__diploma-label">
+                <Icon name="expand" size={16} /> Voir le document
+              </span>
+            </a>
+          )}
+        </article>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .timeline {
+    --line-x: 22px;
+    position: relative;
+    list-style: none;
+    display: grid;
+    gap: 22px;
+    padding-left: calc(var(--line-x) + 34px);
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: var(--line-x);
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-2) 60%, transparent);
+    opacity: 0.6;
+  }
+  .timeline__item { position: relative; }
+  .timeline__year {
+    position: absolute;
+    left: calc(-1 * (var(--line-x) + 34px));
+    top: -22px;
+    font-size: 0.7rem;
+    color: var(--faint);
+    letter-spacing: 0.05em;
+  }
+  .timeline__dot {
+    position: absolute;
+    left: calc(-1 * (var(--line-x) + 34px) + var(--line-x) - 13px);
+    top: 22px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    box-shadow: 0 0 0 6px var(--bg);
+  }
+  .timeline__dot--edu { background: var(--accent-2); }
+  .timeline__card { display: grid; gap: 14px; }
+  .timeline__head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: start;
+  }
+  .timeline__titles h3 { margin: 0 0 4px; font-size: 1.1rem; }
+  .timeline__org { margin: 0; color: var(--muted); font-size: 0.92rem; }
+  .timeline__sep { margin: 0 6px; color: var(--faint); }
+  .timeline__dates {
+    margin: 0;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--accent-text);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .timeline__duration { color: var(--faint); }
+  .timeline__summary { margin: 0; color: var(--muted); }
+  .timeline__bullets { list-style: none; display: grid; gap: 8px; }
+  .timeline__bullets li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); }
+  .timeline__bullets :global(svg) { flex: none; margin-top: 5px; color: var(--accent-2-text); }
+  .timeline__actions { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: flex-start; }
+  .timeline__project { font-size: 0.92rem; }
+  .timeline__testimonial { flex-basis: 100%; }
+  .timeline__testimonial summary { cursor: pointer; list-style: none; }
+  .timeline__testimonial summary::-webkit-details-marker { display: none; }
+  .timeline__testimonial[open] summary :global(svg) { transform: rotate(90deg); }
+  .timeline__testimonial blockquote {
+    margin: 14px 0 0;
+    padding: 18px 20px;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: var(--surface-2);
+    color: var(--muted);
+    font-style: italic;
+  }
+  .timeline__testimonial footer { display: flex; align-items: center; gap: 12px; font-style: normal; font-size: 0.9rem; }
+  .timeline__testimonial footer img { border-radius: 50%; }
+  .timeline__testimonial footer strong { color: var(--text); }
+  .timeline__diploma {
+    position: relative;
+    display: block;
+    width: min(100%, 320px);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .timeline__diploma img { width: 100%; transition: transform 0.6s var(--ease); }
+  .timeline__diploma:hover img { transform: scale(1.03); }
+  .timeline__diploma-label {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: color-mix(in oklab, var(--bg) 80%, transparent);
+    color: var(--text);
+    font-size: 0.85rem;
+    backdrop-filter: blur(6px);
+  }
+  .timeline--compact { gap: 16px; }
+  .timeline--compact .timeline__card { padding: 18px 20px; gap: 10px; }
+  .timeline--compact .timeline__dot { top: 18px; }
+
+  @media (max-width: 640px) {
+    .timeline { padding-left: 44px; --line-x: 12px; }
+    .timeline__year { display: none; }
+    .timeline__dot { left: -45px; }
+    .timeline__head { grid-template-columns: auto 1fr; }
+    .timeline__dates { grid-column: 1 / -1; text-align: left; flex-direction: row; gap: 10px; }
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Timeline from '../components/Timeline.astro';
+import Lightbox from '../components/Lightbox.astro';
+import Icon from '../components/Icon.astro';
+import experiences from '../data/experiences.json';
+import formations from '../data/formations.json';
+import profile from '../data/profile.json';
+---
+
+<Base title="Parcours" description="Expériences professionnelles et formations de Fabrice Dujardin : Groupe Gladius, Hélium NC, GIEP-NC, titre professionnel Développeur web, Vue.js 3.">
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow reveal">Parcours</p>
+          <h1 class="reveal">Expériences & formations</h1>
+          <p class="lead reveal">
+            Une seule frise, du plus récent au plus ancien. Les formations sont en turquoise, les expériences en ambre.
+          </p>
+        </div>
+        <a class="btn reveal" href={profile.cv} download><Icon name="download" /> CV au format PDF</a>
+      </div>
+
+      <ul class="filters reveal" data-filter-group="#timeline" aria-label="Filtrer la frise">
+        <li><button class="filter-btn" type="button" data-filter="*" aria-pressed="true">Tout</button></li>
+        <li><button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Développement web</button></li>
+        <li><button class="filter-btn" type="button" data-filter="edu" aria-pressed="false">Formations</button></li>
+        <li><button class="filter-btn" type="button" data-filter="autre" aria-pressed="false">Avant le web</button></li>
+      </ul>
+
+      <div id="timeline" class="timeline-wrap">
+        <Timeline experiences={experiences} formations={formations} />
+      </div>
+    </div>
+  </section>
+  <Lightbox />
+</Base>
+
+<style>
+  .timeline-wrap { margin-top: 36px; }
+</style>

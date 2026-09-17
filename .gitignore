@@ -1,0 +1,13 @@
+# dépendances et sortie de build
+node_modules/
+dist/
+.astro/
+
+# fichiers système
+.DS_Store
+Thumbs.db
+
+# journaux et environnement
+npm-debug.log*
+.env
+.env.*

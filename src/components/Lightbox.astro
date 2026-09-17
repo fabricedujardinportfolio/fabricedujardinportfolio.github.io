@@ -1,0 +1,80 @@
+---
+import Icon from './Icon.astro';
+---
+
+<dialog class="lightbox" aria-label="Visionneuse d'images">
+  <button class="lightbox__btn lightbox__close" type="button" data-close aria-label="Fermer">
+    <Icon name="close" />
+  </button>
+  <button class="lightbox__btn lightbox__prev" type="button" data-prev aria-label="Image précédente">
+    <Icon name="chevronLeft" />
+  </button>
+  <figure>
+    <img alt="" />
+    <figcaption>
+      <span class="lightbox__caption"></span>
+      <span class="lightbox__counter mono"></span>
+    </figcaption>
+  </figure>
+  <button class="lightbox__btn lightbox__next" type="button" data-next aria-label="Image suivante">
+    <Icon name="chevronRight" />
+  </button>
+</dialog>
+
+<style>
+  .lightbox {
+    max-width: min(96vw, 1400px);
+    max-height: 96dvh;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--text);
+    overflow: visible;
+  }
+  .lightbox::backdrop {
+    background: rgba(5, 7, 12, 0.85);
+    backdrop-filter: blur(8px);
+  }
+  .lightbox[open] { animation: lb-in 0.3s var(--ease); }
+  @keyframes lb-in {
+    from { opacity: 0; transform: scale(0.96); }
+  }
+  .lightbox figure { margin: 0; display: grid; gap: 10px; }
+  .lightbox img {
+    max-width: min(96vw, 1400px);
+    max-height: 84dvh;
+    width: auto;
+    margin-inline: auto;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+  }
+  .lightbox figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 8px;
+    color: #cfd5e2;
+    font-size: 0.9rem;
+  }
+  .lightbox__btn {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(15, 19, 27, 0.8);
+    color: #fff;
+    cursor: pointer;
+  }
+  .lightbox__btn:hover { background: rgba(35, 40, 55, 0.95); }
+  .lightbox__close { top: -54px; right: 0; }
+  .lightbox__prev { left: -8px; top: 50%; transform: translate(-50%, -50%); }
+  .lightbox__next { right: -8px; top: 50%; transform: translate(50%, -50%); }
+  @media (max-width: 700px) {
+    .lightbox__prev { left: 8px; transform: translateY(-50%); }
+    .lightbox__next { right: 8px; transform: translateY(-50%); }
+  }
+</style>

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "skazy-css",
+    "title": "Perfectionnement CSS",
+    "school": "Skazy",
+    "start": "2025-10",
+    "end": "2025-10",
+    "level": "Attestation de formation",
+    "logo": null,
+    "summary": "Mise en page moderne, animations et bonnes pratiques CSS avancées."
+  },
+  {
+    "id": "udemy-vue3",
+    "title": "Vue.js 3 — Front & Back",
+    "school": "Udemy",
+    "start": "2024-07",
+    "end": "2024-08",
+    "level": "Certificat",
+    "logo": null,
+    "summary": "Composition API, gestion des composants et de l'état (Vuex), directives personnalisées, routage et communication avec une API."
+  },
+  {
+    "id": "cci-titre-pro",
+    "title": "Titre professionnel Développeur web et web mobile (niveau 5)",
+    "school": "CCI Nouvelle-Calédonie · GIEP-NC",
+    "start": "2019-10",
+    "end": "2022-01",
+    "level": "Diplôme obtenu",
+    "logo": "cci",
+    "diploma": "titre-professionnel-cci",
+    "summary": "Formation en alternance : gestion des comptes utilisateurs, conception d'applications maintenables (gestion des erreurs et exceptions), création et exploitation de bases de données."
+  },
+  {
+    "id": "openclassrooms",
+    "title": "Développeur web HTML / CSS",
+    "school": "OpenClassrooms",
+    "start": "2019-01",
+    "end": "2020-03",
+    "level": "Parcours en ligne",
+    "logo": "openclassrooms",
+    "summary": "Intégration de maquettes en HTML5 / CSS3, animations, responsive, sémantique et référencement, JavaScript et consommation d'API."
+  },
+  {
+    "id": "cci-prepa",
+    "title": "Préformation développeur web et web mobile",
+    "school": "CCI Nouvelle-Calédonie",
+    "start": "2018-09",
+    "end": "2018-10",
+    "level": "Validée",
+    "logo": "cci",
+    "summary": "Bases de la programmation, préparation à l'entrée en titre professionnel."
+  },
+  {
+    "id": "fun-icn",
+    "title": "Informatique et Création Numérique · Interaction Homme-Machine",
+    "school": "France Université Numérique (MOOC)",
+    "start": "2017-02",
+    "end": "2018-09",
+    "level": "Attestation de suivi avec succès",
+    "logo": "fun",
+    "diploma": "attestation-fun-icn",
+    "summary": "Conception et évaluation d'interfaces interactives, bases de la programmation d'interfaces."
+  },
+  {
+    "id": "armee-formations",
+    "title": "Formations techniques militaires",
+    "school": "Armée française",
+    "start": "2010-01",
+    "end": "2015-12",
+    "level": "Certifications",
+    "logo": null,
+    "summary": "Maintenance des appareils terrestres (électricité, informatique, mécanique), tir de 3e niveau, intervention opérationnelle rapprochée."
+  },
+  {
+    "id": "bep",
+    "title": "BEP Maintenance des véhicules motorisés et des matériels",
+    "school": "Lycée Jules Garnier · Nouméa",
+    "start": "2009-01",
+    "end": "2009-12",
+    "level": "Diplôme obtenu",
+    "logo": null,
+    "summary": ""
+  }
+]

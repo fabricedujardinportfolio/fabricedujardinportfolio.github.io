@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import profile from '../data/profile.json';
+
+const [user, domain] = profile.email.split('@');
+const endpoint = profile.web3formsKey ? 'https://api.web3forms.com/submit' : '';
+---
+
+<Base title="Contact" description="Contactez Fabrice Dujardin, développeur web & mobile à Nouméa : projet, mission, recrutement ou simple question.">
+  <section class="section">
+    <div class="container contact">
+      <div class="contact__intro">
+        <p class="eyebrow reveal">Contact</p>
+        <h1 class="reveal">Parlons de votre projet</h1>
+        <p class="lead reveal">
+          Application métier, site WordPress, API, refonte : décrivez votre besoin, je vous réponds rapidement.
+        </p>
+
+        <ul class="contact__cards">
+          <li class="card reveal">
+            <Icon name="mail" class="contact__icon" />
+            <h2>E-mail</h2>
+            <a href="/contact/#message" data-user={user} data-domain={domain} data-fill>{user} [at] {domain}</a>
+          </li>
+          <li class="card reveal">
+            <Icon name="pin" class="contact__icon" />
+            <h2>Localisation</h2>
+            <p>{profile.location}<br /><span class="contact__muted">Sur site ou à distance</span></p>
+          </li>
+          <li class="card reveal">
+            <Icon name="github" class="contact__icon" />
+            <h2>Réseaux</h2>
+            <p class="contact__links">
+              <a href={profile.links.github} rel="noopener noreferrer" target="_blank">GitHub <Icon name="external" size={14} /></a>
+              {profile.links.linkedin && <a href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn <Icon name="external" size={14} /></a>}
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <form id="message" class="contact__form card reveal" data-contact data-endpoint={endpoint} data-key={profile.web3formsKey} data-mailto={profile.email}>
+        <h2>Envoyer un message</h2>
+        <div class="field">
+          <label for="name">Votre nom</label>
+          <input id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" />
+        </div>
+        <div class="field">
+          <label for="email">Votre e-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="120" />
+        </div>
+        <div class="field">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" rows="6" required minlength="10" maxlength="3000"></textarea>
+        </div>
+        <!-- piège anti-robot, invisible pour les humains -->
+        <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn btn--primary" type="submit">Envoyer <Icon name="send" /></button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="contact__privacy">
+          {endpoint
+            ? 'Les messages transitent par un service d’envoi de formulaires et me parviennent par e-mail. Aucune donnée n’est conservée sur ce site.'
+            : 'Ce formulaire ouvre votre logiciel de messagerie avec le message pré-rempli. Aucune donnée ne transite par ce site.'}
+        </p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: start;
+  }
+  .contact__cards { list-style: none; display: grid; gap: 14px; margin-top: 28px; }
+  .contact__cards li { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; padding: 18px 20px; }
+  .contact__cards :global(.contact__icon) { grid-row: span 2; color: var(--accent-text); width: 26px; height: 26px; margin-top: 2px; }
+  .contact__cards h2 { margin: 0; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); font-family: var(--font-mono); font-weight: 500; }
+  .contact__cards p { margin: 0; }
+  .contact__muted { color: var(--muted); font-size: 0.9rem; }
+  .contact__links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .contact__links a { display: inline-flex; align-items: center; gap: 4px; }
+
+  .contact__form { display: grid; gap: 18px; }
+  .contact__form h2 { margin: 0; font-size: 1.3rem; }
+  .field { display: grid; gap: 6px; }
+  .field label { font-weight: 500; font-size: 0.95rem; }
+  .field input, .field textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-2);
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent-2) 30%, transparent);
+  }
+  .field textarea { resize: vertical; min-height: 140px; }
+  .contact__form .btn { justify-self: start; }
+  .form-status { margin: 0; min-height: 1.4em; font-size: 0.95rem; }
+  .form-status[data-state='ok'] { color: var(--accent-2-text); }
+  .form-status[data-state='error'] { color: #ff8a80; }
+  .contact__privacy { margin: 0; color: var(--faint); font-size: 0.85rem; }
+  @media (max-width: 860px) {
+    .contact { grid-template-columns: 1fr; }
+  }
+</style>

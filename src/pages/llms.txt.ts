@@ -43,7 +43,7 @@ export const GET: APIRoute = ({ site }) => {
     ...formations.map((f) => `- ${range(f.start, f.end)} — ${f.title}, ${f.school} (${f.level}).`),
     '',
     '## Projets',
-    ...projects.map((p) => `- [${p.title}](${base}/projets/${p.slug}/) — ${p.category}, ${p.client}, ${p.year}. ${p.summary} Stack : ${p.stack.join(', ')}.`),
+    ...projects.map((p) => `- [${p.title}](${base}/projets/${p.slug}/) — ${p.category}, ${p.client}, ${p.year}. ${p.summary} Stack : ${p.stack.join(', ')}.${'url' in p && p.url ? ` Site : ${p.url}` : ''}`),
     '',
     '## Questions fréquentes',
     ...profile.faq.flatMap((f) => [`### ${f.q}`, f.a, '']),

@@ -3,7 +3,7 @@ import type { ImageMetadata } from 'astro';
 type Glob = Record<string, () => Promise<{ default: ImageMetadata }>>;
 
 const logos = import.meta.glob<{ default: ImageMetadata }>('/src/assets/logos/*.{png,jpg}');
-const projects = import.meta.glob<{ default: ImageMetadata }>('/src/assets/projects/*.png');
+const projects = import.meta.glob<{ default: ImageMetadata }>('/src/assets/projects/*.{png,jpg,webp}');
 const diplomes = import.meta.glob<{ default: ImageMetadata }>('/src/assets/diplomes/*.jpg');
 const people = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{png,jpg}');
 

@@ -33,7 +33,7 @@ const projectSchema = {
   image: cover ? new URL(cover.src, Astro.site).toString() : undefined,
   author: { '@id': 'https://fabricedujardinportfolio.github.io/#person' },
   keywords: [...project.stack, project.category, project.client, 'Nouméa', 'Nouvelle-Calédonie'].join(', '),
-  offers: undefined,
+  url: 'url' in project ? project.url : undefined,
 };
 ---
 
@@ -59,6 +59,13 @@ const projectSchema = {
           <div><dt>Client</dt><dd>{project.client}</dd></div>
           <div><dt>Période</dt><dd>{project.period}</dd></div>
           <div><dt>Statut</dt><dd><span class="chip chip--teal">{project.status}</span></dd></div>
+          {'context' in project && project.context && <div><dt>Contexte</dt><dd>{project.context}</dd></div>}
+          {'url' in project && project.url && (
+            <div>
+              <dt>Site</dt>
+              <dd><a class="link-arrow" href={project.url} rel="noopener noreferrer" target="_blank">Voir le site en ligne <Icon name="external" size={16} /></a></dd>
+            </div>
+          )}
           <div>
             <dt>Stack</dt>
             <dd><ul class="chips">{project.stack.map((s) => <li class="chip">{s}</li>)}</ul></dd>

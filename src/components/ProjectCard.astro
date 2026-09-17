@@ -12,6 +12,8 @@ interface Props {
     summary: string;
     stack: string[];
     cover: string;
+    client: string;
+    url?: string;
   };
   loading?: 'eager' | 'lazy';
 }
@@ -25,15 +27,22 @@ const cover = await projectImage(project.cover);
     <span class="project-card__cat chip chip--accent">{project.category}</span>
   </a>
   <div class="project-card__body">
-    <p class="project-card__meta mono">{project.year} · GIEP-NC</p>
+    <p class="project-card__meta mono">{project.year} · {project.client}</p>
     <h3><a href={`/projets/${project.slug}/`}>{project.title}</a></h3>
     <p class="project-card__summary">{project.summary}</p>
     <ul class="chips" aria-label="Technologies">
       {project.stack.slice(0, 4).map((s) => <li class="chip">{s}</li>)}
     </ul>
-    <a class="link-arrow project-card__more" href={`/projets/${project.slug}/`}>
-      Voir le projet <Icon name="arrow" />
-    </a>
+    <div class="project-card__links">
+      <a class="link-arrow project-card__more" href={`/projets/${project.slug}/`}>
+        Voir le projet <Icon name="arrow" />
+      </a>
+      {project.url && (
+        <a class="link-arrow project-card__more project-card__site" href={project.url} rel="noopener noreferrer" target="_blank">
+          Site en ligne <Icon name="external" size={16} />
+        </a>
+      )}
+    </div>
   </div>
 </article>
 
@@ -67,5 +76,7 @@ const cover = await projectImage(project.cover);
   .project-card h3 a { color: var(--text); }
   .project-card h3 a::after { content: ''; position: absolute; inset: 0; }
   .project-card__summary { margin: 0; color: var(--muted); flex: 1; }
-  .project-card__more { position: relative; z-index: 1; margin-top: 6px; }
+  .project-card__links { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 6px; }
+  .project-card__more { position: relative; z-index: 1; }
+  .project-card__site { color: var(--accent-2-text); }
 </style>

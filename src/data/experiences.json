@@ -1,0 +1,189 @@
+[
+  {
+    "id": "gladius",
+    "company": "Groupe Gladius",
+    "role": "Développeur web & mobile",
+    "contract": "Temps plein",
+    "location": "Nouméa",
+    "start": "2026-01",
+    "end": null,
+    "logo": null,
+    "web": true,
+    "stack": [
+      "Laravel",
+      "Inertia.js",
+      "React.js",
+      "PHP",
+      "MySQL",
+      "API REST",
+      "Docker",
+      "GitHub Actions"
+    ],
+    "summary": "Applications web et mobiles en Laravel + Inertia + React, conteneurisées avec Docker et déployées par GitHub Actions.",
+    "bullets": [
+      "Développement d'applications métier en monolithe moderne : Laravel côté serveur, Inertia.js et React.js côté interface.",
+      "Conception d'API REST consommées par des applications web et mobiles.",
+      "Conteneurisation des environnements avec Docker et automatisation des déploiements avec GitHub Actions (CI/CD).",
+      "Participation au cycle complet : analyse du besoin, développement, tests, mise en production."
+    ]
+  },
+  {
+    "id": "helium",
+    "company": "Hélium NC",
+    "role": "Développeur web full-stack",
+    "contract": "Temps plein",
+    "location": "Nouméa",
+    "start": "2022-06",
+    "end": "2025-10",
+    "logo": null,
+    "web": true,
+    "stack": [
+      "PHP",
+      "CodeIgniter",
+      "WordPress",
+      "Vue.js",
+      "JavaScript",
+      "jQuery",
+      "MySQL",
+      "API REST"
+    ],
+    "summary": "Trois ans de mise en production de sites et d'applications web pour des clients calédoniens.",
+    "bullets": [
+      "Développement et maintenance d'applications métier avec CodeIgniter et bases de données MySQL.",
+      "Interfaces dynamiques en Vue.js et jQuery, intégration de maquettes responsive.",
+      "Création, personnalisation et maintenance de sites WordPress : thèmes, extensions, référencement.",
+      "Mise en production, suivi et évolutions de plusieurs sites et applications."
+    ]
+  },
+  {
+    "id": "giep-cdd",
+    "company": "GIEP-NC",
+    "role": "Développeur web et application mobile",
+    "contract": "CDD",
+    "location": "Nouméa",
+    "start": "2022-04",
+    "end": "2022-06",
+    "logo": "giep",
+    "web": true,
+    "stack": [
+      "PHP",
+      "Laravel",
+      "WordPress"
+    ],
+    "summary": "Poursuite des développements engagés pendant l'alternance.",
+    "bullets": [
+      "Finalisation et maintenance des applications internes (ressources, absences) et de l'intranet.",
+      "Transfert de compétences et documentation pour les équipes du GIEP-NC."
+    ]
+  },
+  {
+    "id": "giep-alternance",
+    "company": "GIEP-NC",
+    "role": "Apprenti développeur web et application mobile",
+    "contract": "Alternance",
+    "location": "Nouméa",
+    "start": "2021-01",
+    "end": "2022-03",
+    "logo": "giep",
+    "web": true,
+    "stack": [
+      "PHP",
+      "Laravel",
+      "WordPress",
+      "MySQL",
+      "Ajax",
+      "Bootstrap"
+    ],
+    "summary": "Développement d'applications internes pour le Groupement pour l'Insertion et l'Évolution Professionnelles.",
+    "bullets": [
+      "Application Laravel de gestion des ressources (véhicules, salles, matériel informatique) : réservation, recherche, authentification interne.",
+      "Applications PHP orienté objet (gestion des absences) et procédural (gestion des utilisateurs, application Numéro vert).",
+      "Mise en place des environnements de test et de production, puis déploiement d'un intranet WordPress centralisant l'information interne."
+    ],
+    "testimonial": "ronny",
+    "projects": [
+      "gestion-ressources-giep",
+      "intranet-giep",
+      "gestion-absences-giep"
+    ]
+  },
+  {
+    "id": "iaai",
+    "company": "IAAI-Events",
+    "role": "Développeur WordPress",
+    "contract": "Mission",
+    "location": "Nouméa",
+    "start": "2020-07",
+    "end": "2020-09",
+    "logo": "iaai-events",
+    "web": true,
+    "stack": [
+      "WordPress",
+      "PHP"
+    ],
+    "summary": "Administration et mise en production de plusieurs sites WordPress du groupe.",
+    "bullets": []
+  },
+  {
+    "id": "dotta",
+    "company": "Dotta",
+    "role": "Développeur junior",
+    "contract": "Stage",
+    "location": "Nouméa",
+    "start": "2020-03",
+    "end": "2020-06",
+    "logo": "dotta",
+    "web": true,
+    "stack": [
+      "Laravel",
+      "WordPress"
+    ],
+    "summary": "Corrections et évolutions Laravel sur les projets clients, production et déploiement de sites WordPress.",
+    "bullets": []
+  },
+  {
+    "id": "technicien-2017",
+    "company": "Particulier",
+    "role": "Technicien informatique polyvalent",
+    "contract": "Mission · 1,5 mois",
+    "location": "Nouméa",
+    "start": "2017-09",
+    "end": "2017-10",
+    "logo": null,
+    "web": false,
+    "stack": [],
+    "summary": "Entretien du matériel informatique, mises à jour et dépannage.",
+    "bullets": []
+  },
+  {
+    "id": "pneumatique-2017",
+    "company": "Service pneumatique",
+    "role": "Aide monteur pneumatique",
+    "contract": "1 an",
+    "location": "Yaté",
+    "start": "2016-09",
+    "end": "2017-08",
+    "logo": null,
+    "web": false,
+    "stack": [],
+    "summary": "Pose de pneumatiques sur engins miniers.",
+    "bullets": []
+  },
+  {
+    "id": "armee",
+    "company": "Armée française",
+    "role": "Militaire · maintenance des matériels",
+    "contract": "5 ans",
+    "location": "France",
+    "start": "2010-01",
+    "end": "2015-12",
+    "logo": null,
+    "web": false,
+    "stack": [],
+    "summary": "Entretien mécanique des engins et des appareils informatiques militaires.",
+    "bullets": [
+      "Certification technique de maintenance des appareils terrestres : électricité, informatique, mécanique.",
+      "Formation de tir de 3e niveau et techniques d'intervention opérationnelle rapprochée."
+    ]
+  }
+]

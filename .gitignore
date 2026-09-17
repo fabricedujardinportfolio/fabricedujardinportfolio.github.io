@@ -1,0 +1,16 @@
+# dépendances et sortie de build
+node_modules/
+dist/
+.astro/
+
+# fichiers système
+.DS_Store
+Thumbs.db
+
+# journaux et environnement
+npm-debug.log*
+.env
+.env.*
+
+# PDF du CV : généré au build, copié ici pour le mode dev
+public/cv-fabrice-dujardin.pdf

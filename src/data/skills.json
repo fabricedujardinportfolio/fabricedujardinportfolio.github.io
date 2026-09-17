@@ -1,0 +1,66 @@
+[
+  {
+    "group": "Back-end",
+    "items": [
+      "PHP (POO)",
+      "Laravel",
+      "Laravel + Inertia (monolithe moderne)",
+      "CodeIgniter",
+      "MySQL",
+      "API REST",
+      "Node.js"
+    ]
+  },
+  {
+    "group": "Front-end",
+    "items": [
+      "HTML5",
+      "CSS3 / SCSS",
+      "JavaScript",
+      "React.js",
+      "Inertia.js",
+      "Vue.js 3",
+      "jQuery",
+      "Bootstrap",
+      "Ajax"
+    ]
+  },
+  {
+    "group": "DevOps & déploiement",
+    "items": [
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions (CI/CD)",
+      "GitHub Pages",
+      "Linux / ligne de commande",
+      "Mise en production"
+    ]
+  },
+  {
+    "group": "CMS & outils",
+    "items": [
+      "WordPress",
+      "Git / GitHub",
+      "SEO",
+      "Gestion de projet web"
+    ]
+  },
+  {
+    "group": "Design",
+    "items": [
+      "Illustrator",
+      "Affinity Designer",
+      "Photoshop",
+      "Affinity Photo"
+    ]
+  },
+  {
+    "group": "Support & matériel",
+    "items": [
+      "Diagnostic à distance",
+      "Maintenance préventive",
+      "Installation de postes",
+      "Assistance utilisateur"
+    ]
+  }
+]

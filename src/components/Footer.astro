@@ -1,0 +1,83 @@
+---
+import Icon from './Icon.astro';
+import profile from '../data/profile.json';
+const [user, domain] = profile.email.split('@');
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <strong class="site-footer__name">{profile.firstName} {profile.lastName}</strong>
+      <p class="site-footer__sub">{profile.title} · {profile.location}</p>
+    </div>
+    <ul class="site-footer__links" aria-label="Liens">
+      <li>
+        <a href={profile.links.github} rel="noopener noreferrer" target="_blank">
+          <Icon name="github" size={18} /> GitHub perso <Icon name="external" size={14} />
+        </a>
+      </li>
+      {
+        profile.links.githubPro && (
+          <li>
+            <a href={profile.links.githubPro} rel="noopener noreferrer" target="_blank">
+              <Icon name="github" size={18} /> GitHub pro <Icon name="external" size={14} />
+            </a>
+          </li>
+        )
+      }
+      {
+        profile.links.linkedin && (
+          <li>
+            <a href={profile.links.linkedin} rel="noopener noreferrer" target="_blank">
+              <Icon name="linkedin" size={18} /> LinkedIn <Icon name="external" size={14} />
+            </a>
+          </li>
+        )
+      }
+      <li>
+        <a href="/contact/" data-user={user} data-domain={domain}><Icon name="mail" size={18} /> E-mail</a>
+      </li>
+      <li>
+        <a href="/cv/"><Icon name="download" size={18} /> CV en ligne</a>
+      </li>
+    </ul>
+    <p class="site-footer__legal">
+      © {year} Fabrice Dujardin · Site statique construit avec Astro, sans traceur ni cookie.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: clamp(40px, 6vw, 80px);
+    border-top: 1px solid var(--border);
+    background: var(--bg-2);
+  }
+  .site-footer__inner {
+    display: grid;
+    gap: 20px;
+    padding-block: 36px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  .site-footer__name { font-family: var(--font-display); font-size: 1.1rem; }
+  .site-footer__sub { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+  .site-footer__links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+  .site-footer__links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--surface);
+    font-size: 0.9rem;
+  }
+  .site-footer__links a:hover { border-color: var(--border-strong); text-decoration: none; }
+  .site-footer__legal { grid-column: 1 / -1; margin: 0; color: var(--faint); font-size: 0.85rem; }
+  @media (max-width: 640px) {
+    .site-footer__inner { grid-template-columns: 1fr; }
+  }
+</style>

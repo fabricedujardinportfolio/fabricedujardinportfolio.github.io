@@ -1,0 +1,106 @@
+{
+  "firstName": "Fabrice",
+  "lastName": "Dujardin",
+  "title": "Développeur web & mobile",
+  "tagline": "Full-stack Laravel + Inertia + React, Vue.js, Docker et déploiement continu GitHub Actions, basé à Nouméa en Nouvelle-Calédonie.",
+  "location": "Nouméa, Nouvelle-Calédonie",
+  "email": "fdujardin.dev@gmail.com",
+  "availability": "En poste chez Groupe Gladius · disponible pour des missions en extra",
+  "since": 2020,
+  "rotate": [
+    "vos applications Laravel + Inertia + React.",
+    "vos interfaces Vue.js et React.",
+    "vos sites WordPress sur mesure.",
+    "vos API REST et back-offices.",
+    "vos déploiements Docker et GitHub Actions."
+  ],
+  "links": {
+    "github": "https://github.com/fabricedujardinportfolio",
+    "githubPro": "https://github.com/FabriceDujardinNc",
+    "linkedin": "https://www.linkedin.com/in/fabrice-dujardin-246066175/"
+  },
+  "cv": "/cv-fabrice-dujardin.pdf",
+  "web3formsKey": "46da17e9-3472-472b-95bd-1208c0124404",
+  "intro": [
+    "Développeur web depuis 2020, j'ai construit mon parcours en Nouvelle-Calédonie : alternance au GIEP-NC, trois ans chez Hélium NC sur des sites et applications en production, et aujourd'hui développeur web & mobile au sein du Groupe Gladius.",
+    "J'aime partir d'un besoin concret et livrer une application propre, maintenable et agréable à utiliser : back-end PHP (Laravel, CodeIgniter), interfaces Vue.js ou React, WordPress quand c'est le bon outil. Avant le web, dix ans de maintenance technique m'ont appris la rigueur et le sens du service."
+  ],
+  "phone": "",
+  "website": "https://fabricedujardinportfolio.github.io",
+  "languages": [
+    {
+      "name": "Français",
+      "level": "Langue maternelle"
+    },
+    {
+      "name": "Anglais",
+      "level": "Intermédiaire, lecture technique courante"
+    },
+    {
+      "name": "Espagnol",
+      "level": "Notions"
+    }
+  ],
+  "extras": [
+    "Permis A, B, C, E · véhicule personnel",
+    "Disponible sur site à Nouméa ou à distance"
+  ],
+  "birthDate": "",
+  "_aide": "Champs optionnels du CV : phone et birthDate (ex. \"23 mars 1992\") ne s'affichent que s'ils sont renseignés. Ils sont publics une fois en ligne. conditions.salary (ex. \"à partir de 350 000 F CFP brut / mois\") : prétentions pour une offre en CDI, affichées seulement si renseignées.",
+  "seo": {
+    "keywords": [
+      "développeur web Nouméa",
+      "développeur Nouvelle-Calédonie",
+      "développeur Laravel Nouméa",
+      "développeur PHP Nouvelle-Calédonie",
+      "développeur Vue.js React Nouméa",
+      "développeur WordPress Nouméa",
+      "développeur full-stack Nouvelle-Calédonie",
+      "freelance web Nouméa",
+      "Docker GitHub Actions Nouméa"
+    ],
+    "geo": {
+      "region": "NC",
+      "placename": "Nouméa, Nouvelle-Calédonie",
+      "lat": -22.2758,
+      "lng": 166.458
+    }
+  },
+  "conditions": {
+    "status": "En CDI chez Groupe Gladius depuis janvier 2026 — pas en recherche d'emploi",
+    "openTo": "Missions ponctuelles en complément de mon poste (soirs, week-ends, à distance) : site vitrine, application web, WordPress, maintenance, coup de main technique",
+    "format": "Prestation freelance ou mission courte, sur devis",
+    "rate": "À partir de 12 000 F CFP de l'heure · forfait sur devis gratuit pour un site ou une application délimités",
+    "remote": "À distance principalement, rencontre possible à Nouméa",
+    "mobility": "Grand Nouméa · permis A, B, C, E · véhicule personnel",
+    "experienceYears": "6 ans de développement web (depuis 2020), 3 ans chez Hélium NC, en poste chez Groupe Gladius",
+    "salary": "",
+    "cdi": "En poste : une offre exceptionnelle se discute"
+  },
+  "faq": [
+    {
+      "q": "Qui est Fabrice Dujardin ?",
+      "a": "Développeur web et mobile full-stack basé à Nouméa, en Nouvelle-Calédonie. En poste chez Groupe Gladius depuis janvier 2026, après trois ans chez Hélium NC (2022-2025) et une alternance au GIEP-NC. Titulaire du titre professionnel Développeur web et web mobile (CCI Nouvelle-Calédonie)."
+    },
+    {
+      "q": "Quelles technologies maîtrise-t-il ?",
+      "a": "Back-end PHP orienté objet avec Laravel (dont le monolithe moderne Laravel + Inertia.js + React) et CodeIgniter, bases MySQL, API REST. Front-end React.js, Inertia.js, Vue.js 3, JavaScript, HTML/CSS. WordPress sur mesure. Docker pour les environnements, GitHub Actions pour l'intégration et le déploiement continus."
+    },
+    {
+      "q": "Est-il disponible pour un recrutement ou une mission à Nouméa ?",
+      "a": "Fabrice est en CDI chez Groupe Gladius et n'est pas en recherche d'emploi. Il reste en revanche disponible pour des missions ponctuelles en extra, en complément de son poste : site vitrine, application web, WordPress, maintenance ou coup de main technique, principalement à distance. Le formulaire de contact du site permet de le joindre directement."
+    },
+    {
+      "q": "Quels sont ses tarifs pour une mission ?",
+      "a": "Tarif horaire à partir de 12 000 F CFP pour les petites interventions et la maintenance. Pour un site ou une application bien délimités, forfait sur devis, gratuit, après un premier échange sur le besoin."
+    },
+    {
+      "q": "Quels projets a-t-il réalisés ?",
+      "a": "Pour le GIEP-NC : une application Laravel de gestion des ressources (réservation de véhicules, salles et matériel), un intranet WordPress et une application PHP de gestion des absences, tous mis en production. Chez Hélium NC : trois ans de sites et d'applications web pour des clients calédoniens."
+    },
+    {
+      "q": "Quel est son parcours avant le web ?",
+      "a": "Cinq ans dans l'armée française en maintenance des matériels (électricité, informatique, mécanique), puis technicien informatique et monteur pneumatique en Nouvelle-Calédonie. Reconversion vers le développement web en 2018-2019 via la CCI et OpenClassrooms."
+    }
+  ]
+}

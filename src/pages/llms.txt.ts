@@ -25,6 +25,7 @@ export const GET: APIRoute = ({ site }) => {
     `- Ouvert à : ${profile.conditions.openTo}`,
     `- Format : ${profile.conditions.format}`,
     `- Tarifs : ${profile.conditions.rate}`,
+    ...(profile.conditions.salary ? [`- Offre en CDI (exceptionnelle uniquement) : ${profile.conditions.salary}`] : []),
     `- Lieu de travail : ${profile.conditions.remote}`,
     `- Expérience : ${profile.conditions.experienceYears}`,
     `- Site : ${base}/`,

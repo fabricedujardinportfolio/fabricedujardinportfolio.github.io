@@ -2,16 +2,17 @@
   "firstName": "Fabrice",
   "lastName": "Dujardin",
   "title": "Développeur web & mobile",
-  "tagline": "Full-stack PHP / Laravel, Vue.js et React, Docker et déploiement continu, basé à Nouméa en Nouvelle-Calédonie.",
+  "tagline": "Full-stack Laravel + Inertia + React, Vue.js, Docker et déploiement continu GitHub Actions, basé à Nouméa en Nouvelle-Calédonie.",
   "location": "Nouméa, Nouvelle-Calédonie",
   "email": "fabricedujardin873@gmail.com",
   "availability": "En poste chez Groupe Gladius · disponible pour des missions en extra",
   "since": 2020,
   "rotate": [
-    "vos applications Laravel.",
+    "vos applications Laravel + Inertia + React.",
     "vos interfaces Vue.js et React.",
     "vos sites WordPress sur mesure.",
-    "vos API REST et back-offices."
+    "vos API REST et back-offices.",
+    "vos déploiements Docker et GitHub Actions."
   ],
   "links": {
     "github": "https://github.com/fabricedujardinportfolio",
@@ -45,7 +46,7 @@
     "Disponible sur site à Nouméa ou à distance"
   ],
   "birthDate": "",
-  "_aide": "Champs optionnels du CV : phone et birthDate (ex. \"23 mars 1992\") ne s'affichent que s'ils sont renseignés. Ils sont publics une fois en ligne.",
+  "_aide": "Champs optionnels du CV : phone et birthDate (ex. \"23 mars 1992\") ne s'affichent que s'ils sont renseignés. Ils sont publics une fois en ligne. conditions.salary (ex. \"à partir de 350 000 F CFP brut / mois\") : prétentions pour une offre en CDI, affichées seulement si renseignées.",
   "seo": {
     "keywords": [
       "développeur web Nouméa",
@@ -72,7 +73,8 @@
     "rate": "Devis gratuit · tarif horaire à partir de 8 000 F CFP selon le projet",
     "remote": "À distance principalement, rencontre possible à Nouméa",
     "mobility": "Grand Nouméa · permis A, B, C, E · véhicule personnel",
-    "experienceYears": "6 ans de développement web (depuis 2020), 3 ans chez Hélium NC, en poste chez Groupe Gladius"
+    "experienceYears": "6 ans de développement web (depuis 2020), 3 ans chez Hélium NC, en poste chez Groupe Gladius",
+    "salary": ""
   },
   "faq": [
     {
@@ -81,7 +83,7 @@
     },
     {
       "q": "Quelles technologies maîtrise-t-il ?",
-      "a": "Back-end PHP orienté objet avec Laravel et CodeIgniter, bases MySQL, API REST. Front-end Vue.js 3, React.js, JavaScript, HTML/CSS. WordPress sur mesure. Docker pour les environnements, GitHub Actions pour l'intégration et le déploiement continus."
+      "a": "Back-end PHP orienté objet avec Laravel (dont le monolithe moderne Laravel + Inertia.js + React) et CodeIgniter, bases MySQL, API REST. Front-end React.js, Inertia.js, Vue.js 3, JavaScript, HTML/CSS. WordPress sur mesure. Docker pour les environnements, GitHub Actions pour l'intégration et le déploiement continus."
     },
     {
       "q": "Est-il disponible pour un recrutement ou une mission à Nouméa ?",

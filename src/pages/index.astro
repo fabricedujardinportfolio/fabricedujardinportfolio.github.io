@@ -38,6 +38,7 @@ const conditions = [
   { k: 'Ouvert à', v: profile.conditions.openTo },
   { k: 'Format', v: profile.conditions.format },
   { k: 'Tarifs', v: profile.conditions.rate },
+  ...(profile.conditions.salary ? [{ k: 'Offre en CDI', v: `Uniquement pour une offre exceptionnelle : ${profile.conditions.salary}` }] : []),
   { k: 'Lieu de travail', v: profile.conditions.remote },
   { k: 'Mobilité', v: profile.conditions.mobility },
   { k: 'Expérience', v: profile.conditions.experienceYears },
@@ -89,8 +90,8 @@ const conditions = [
         </div>
         <span class="hero__badge hero__badge--1 chip chip--accent">Laravel</span>
         <span class="hero__badge hero__badge--2 chip chip--teal">Vue.js</span>
-        <span class="hero__badge hero__badge--3 chip">React</span>
-        <span class="hero__badge hero__badge--4 chip">WordPress</span>
+        <span class="hero__badge hero__badge--3 chip">React + Inertia</span>
+        <span class="hero__badge hero__badge--4 chip">Docker · CI/CD</span>
       </div>
     </div>
   </section>

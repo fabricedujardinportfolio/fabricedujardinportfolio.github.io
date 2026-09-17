@@ -4,6 +4,7 @@
     "items": [
       "PHP (POO)",
       "Laravel",
+      "Laravel + Inertia (monolithe moderne)",
       "CodeIgniter",
       "MySQL",
       "API REST",
@@ -16,8 +17,9 @@
       "HTML5",
       "CSS3 / SCSS",
       "JavaScript",
-      "Vue.js 3",
       "React.js",
+      "Inertia.js",
+      "Vue.js 3",
       "jQuery",
       "Bootstrap",
       "Ajax"

@@ -53,6 +53,17 @@ const person = {
     occupationLocation: { '@type': 'City', name: 'Nouméa' },
     skills: knows.join(', '),
     experienceRequirements: profile.conditions.experienceYears,
+    ...(profile.conditions.salary && /\d/.test(profile.conditions.salary)
+      ? {
+          estimatedSalary: {
+            '@type': 'MonetaryAmountDistribution',
+            name: 'Prétentions pour une offre en CDI',
+            currency: 'XPF',
+            duration: 'P1M',
+            minValue: Number(profile.conditions.salary.replace(/[^\d]/g, '')),
+          },
+        }
+      : {}),
   },
   worksFor: current && { '@type': 'Organization', name: current.company, location: current.location },
   alumniOf: formations.filter((f) => /diplôme|titre/i.test(f.level + f.title)).map((f) => ({ '@type': 'EducationalOrganization', name: f.school })),

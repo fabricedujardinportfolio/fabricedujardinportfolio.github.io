@@ -11,6 +11,7 @@
     "web": true,
     "stack": [
       "Laravel",
+      "Inertia.js",
       "React.js",
       "PHP",
       "MySQL",
@@ -18,9 +19,9 @@
       "Docker",
       "GitHub Actions"
     ],
-    "summary": "Conception et développement d'applications web et mobiles pour le groupe et ses clients.",
+    "summary": "Applications web et mobiles en Laravel + Inertia + React, conteneurisées avec Docker et déployées par GitHub Actions.",
     "bullets": [
-      "Développement d'applications métier : Laravel côté serveur, React.js côté interface.",
+      "Développement d'applications métier en monolithe moderne : Laravel côté serveur, Inertia.js et React.js côté interface.",
       "Conception d'API REST consommées par des applications web et mobiles.",
       "Conteneurisation des environnements avec Docker et automatisation des déploiements avec GitHub Actions (CI/CD).",
       "Participation au cycle complet : analyse du besoin, développement, tests, mise en production."

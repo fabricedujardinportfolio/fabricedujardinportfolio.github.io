@@ -21,7 +21,7 @@ jobs:
       - name: Récupération du dépôt
         uses: actions/checkout@v4
       - name: Installation, build et envoi du site
-        uses: withastro/action@v4
+        uses: withastro/action@v6
         with:
           node-version: 24
 

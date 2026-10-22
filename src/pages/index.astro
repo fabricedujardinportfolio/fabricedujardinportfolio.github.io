@@ -37,8 +37,7 @@ const conditions = [
   { k: 'Situation', v: profile.conditions.status },
   { k: 'Ouvert à', v: profile.conditions.openTo },
   { k: 'Format', v: profile.conditions.format },
-  { k: 'Tarifs', v: profile.conditions.rate },
-  { k: 'Offre en CDI', v: profile.conditions.salary ? `${profile.conditions.cdi} : ${profile.conditions.salary}` : profile.conditions.cdi },
+  { k: 'Engagement', v: profile.conditions.commitment },
   { k: 'Lieu de travail', v: profile.conditions.remote },
   { k: 'Mobilité', v: profile.conditions.mobility },
   { k: 'Expérience', v: profile.conditions.experienceYears },
@@ -47,7 +46,7 @@ const conditions = [
 
 <Base
   title={fullName}
-  description={`${fullName}, ${profile.title.toLowerCase()} à Nouméa, Nouvelle-Calédonie : Laravel, Vue.js, React, WordPress, Docker. ${years} ans d'expérience, projets en production, disponible pour des missions ponctuelles en extra.`}
+  description={`${fullName}, ${profile.title.toLowerCase()} à Nouméa, Nouvelle-Calédonie : Laravel, Vue.js, React, WordPress, Docker. ${years} ans d'expérience, projets en production, missions ponctuelles possibles avec l'accord de mon employeur.`}
   type="profile"
   schemas={[faqSchema]}
 >
@@ -196,8 +195,8 @@ const conditions = [
   <section class="section" id="conditions" aria-labelledby="cond-title">
     <div class="container">
       <p class="eyebrow reveal">Disponibilité & conditions</p>
-      <h2 id="cond-title" class="reveal">Une mission en extra avec un développeur web à Nouméa</h2>
-      <p class="lead reveal">Je suis en poste et pas en recherche d'emploi, mais je prends volontiers des missions ponctuelles en complément. Les informations utiles, sans détour.</p>
+      <h2 id="cond-title" class="reveal">Une mission ponctuelle avec un développeur web à Nouméa</h2>
+      <p class="lead reveal">Je suis en poste et pas en recherche d'emploi. Avec l'accord de mon employeur, je peux prendre une mission ponctuelle en complément. Les informations utiles, sans détour.</p>
       <dl class="conditions">
         {
           conditions.map((c) => (
